@@ -1,0 +1,17 @@
+# Ignore LaTeX build files
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.gz
+*.toc
+
+# Ignore .pdf files in the repository root
+/*.pdf
