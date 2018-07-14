@@ -6,16 +6,11 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Load the necessary packages
+% Load packages
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{amsmath,amsthm,amsfonts,amscd}
-\usepackage{eucal}
-\usepackage{verbatim}
-\usepackage{makeidx}
-\usepackage{epsfig}
-\usepackage{cite}
-\usepackage{url}
-\usepackage[version=4]{mhchem}
+\usepackage{microtype}              % Refined typesetting
+\usepackage{amsmath,amsfonts}       % Math
+\usepackage[version=4]{mhchem}      % Chemical Formulae
 
 \usepackage[english]{babel}
 \usepackage{blindtext}
@@ -92,58 +87,6 @@
 %
 %\longtocentry
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%	Some math support.					     %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%	Theorem environments (these need the amsthm package)
-%
-%% \theoremstyle{plain} %% This is the default
-
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{cor}[thm]{Corollary}
-\newtheorem{lem}[thm]{Lemma}
-\newtheorem{prop}[thm]{Proposition}
-\newtheorem{ax}{Axiom}
-
-\theoremstyle{definition}
-\newtheorem{defn}{Definition}[section]
-
-\theoremstyle{remark}
-\newtheorem{rem}{Remark}[section]
-\newtheorem*{notation}{Notation}
-
-%\numberwithin{equation}{section}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%	Macros.							     %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%	Here some macros that are needed in this document:
-
-\newcommand{\latexe}{{\LaTeX\kern.125em2%
-                      \lower.5ex\hbox{$\varepsilon$}}}
-
-\newcommand{\amslatex}{\AmS-\LaTeX{}}
-
-\chardef\bslash=`\\	% \bslash makes a backslash (in tt fonts)
-			%	p. 424, TeXbook
-
-\newcommand{\cn}[1]{\texttt{\bslash #1}}
-
-\makeatletter		% Starts section where @ is considered a letter
-			% and thus may be used in commands.
-\def\square{\RIfM@\bgroup\else$\bgroup\aftergroup$\fi
-  \vcenter{\hrule\hbox{\vrule\@height.6em\kern.6em\vrule}%
-                                              \hrule}\egroup}
-
-\makeatother		% Ends sections where @ is considered a letter.
-			% Now @ cannot be used in commands.
-
-\makeindex    % Make the index
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % BEGIN DOCUMENT
