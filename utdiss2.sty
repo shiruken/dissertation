@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                utdiss2.sty-05.sty (August 2002) 
+%                utdiss2.sty-05.sty (August 2002)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Doctoral Dissertation Format Macros for The Univ. of Texas at Austin
 %     By Young U. Ryu
@@ -10,18 +10,18 @@
 % to meet the Graduate School requirements of March, 2001. The name of
 % the file was changed to utdiss2.sty to distinguish it from the
 % original utdiss.sty of June 1991 and Miguel A. Lerma's utdiss1.sty.
-% 
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
+%
 % How to Use -
 %
-% \documentclass[12pt]{report} 
+% \documentclass[12pt]{report}
 %
 % \usepackage{utdiss2}
-% 
+%
 %
 % Note: This style file does not guarantee the satisfaction
 %       of all requirements specified by the Graduate School
@@ -284,7 +284,7 @@
 \def\appendix{\clearpage
     \typeout{Appendix.}
     \short@page					% <- 9/13/96 (MAL)
-        \markboth{}{}\pagestyle{myheadings}	% <- The appendix must 
+        \markboth{}{}\pagestyle{myheadings}	% <- The appendix must
         \thispagestyle{plain}			% <- be numbered.
     \vspace*{\fill}
     \centerline{\large\bf Appendix}
@@ -322,7 +322,7 @@
 
 % Redefinition of \@part for using by \part (M.A.L.)
 %
-\newcount\with@parts\with@parts=0 % <- this would allow to restart 
+\newcount\with@parts\with@parts=0 % <- this would allow to restart
                                   %    page number with Chapter 1 (MAL)
 \def\@part[#1]#2{%
     \short@page                   % <- Added 4/21/97 (MAL)
@@ -349,15 +349,15 @@
 %%%% End redefinition of \@part
 
 
-\newcommand\fpage{%             % First page of a 
+\newcommand\fpage{%             % First page of a
 \clearpage                      % new ``major'' section
-\short@page                     % 
+\short@page                     %
 \thispagestyle{plain}           % (7/16/97 M.A.L.)
 }
 
 
 \newcounter{no@chapters}                       % (7/16/97 M.A.L.)
-\setcounter{no@chapters}{0}                    % 
+\setcounter{no@chapters}{0}                    %
 
 \newcommand\nochapters{%                       %
 \setcounter{no@chapters}{1}                    % (7/16/97 M.A.L.)
@@ -370,7 +370,7 @@
     \global\@topnum\z@ \@afterindenttrue	% Indent 1st lines.
 %    \global\@topnum\z@ \@afterindentfalse	% Do NOT indent 1st lines.
                                                %
-\pagenumbering{arabic}                         % Added for using with 
+\pagenumbering{arabic}                         % Added for using with
 \markboth{}{}\pagestyle{myheadings}            % no chapters
 \addtocontents{toc}{\protect\addvspace{10pt}}  % (4/22/97, MAL)
 
@@ -381,9 +381,9 @@
 
 \default@spacing                               % (6/30/97 M.A.L.)
                                                %
-}                                              % 
+}                                              %
 
-\def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne 
+\def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
     \refstepcounter{chapter}
     \typeout{\@chapapp\space\thechapter.}
     \addcontentsline{toc}{chapter}{\@chapapp\space\thechapter.\hspace*{1em}#1}\else
@@ -396,7 +396,7 @@
         \markboth{}{}\pagestyle{myheadings}
         \ifnum\with@parts=0 \pagenumbering{arabic}\fi% Restart page number only
                                                  % if there are no parts (MAL)
-                                           \fi\fi 
+                                           \fi\fi
         \thispagestyle{plain}}
 
 \def\@schapter#1{\thispagestyle{plain}
@@ -415,7 +415,7 @@
 %    \else\addpenalty{\@secpenalty}\addvspace{\@tempskipa}\fi
 %    \@ifstar{\@ssect{#3}{#4}{#5}{#6}}%
 %            {\@dblarg{\@sect{#1}{#2}{#3}{#4}{#5}{#6}}}}
- 
+
 \def\section{%
      \ifnum\value{no@chapters}=1 \fpage \fi%    % (7/16/97 M.A.L.)
      \@startsection{section}{1}{\z@}%
@@ -482,11 +482,11 @@
                 \twocolumn[\@makeschapterhead{\indexname}]%
                 \@mkboth{\uppercase{\indexname}}%
                         {\uppercase{\indexname}}%
-             \addcontentsline{toc}{chapter}{\indexname}%  % <- 
+             \addcontentsline{toc}{chapter}{\indexname}%  % <-
                     \ishort@page                          % <-
                     \setcounter{regular@short@col}{1}%    % <-
-                    \index@opcol@def%                     % <- 
-                \thispagestyle{plain}\parindent\z@ 
+                    \index@opcol@def%                     % <-
+                \thispagestyle{plain}\parindent\z@
                 \parskip\z@ \@plus .3\p@\relax
 %
 %	Uncomment one of the following two command lines if you
@@ -508,8 +508,8 @@
     \typeout{* This is a master thesis *}
     \typeout{*                         *}
     \typeout{*                         *}
-    \def\doc@type{thesis}   % for master thesis 
-    \def\DOC@TYPE{THESIS}   % the document type 
+    \def\doc@type{thesis}   % for master thesis
+    \def\DOC@TYPE{THESIS}   % the document type
                             % is "thesis" (MAL, 3/12/98)
 %
 %\def\previous@degrees{B.S.}
@@ -523,7 +523,7 @@
 \def\certif@words{ }		%	13 Mar 2002	cwm
 %
 \def\approvalwords{%
-         \leftline{\hbox to 2.5in{}APPROVED BY\hfill}         %           
+         \leftline{\hbox to 2.5in{}APPROVED BY\hfill}         %
          \leftline{\hbox to 2.5in{}SUPERVISING COMMITTEE:\hfill} %
                                            }                     %
     \def\pubnum{}           % (M.A.L. 3/18/98)
@@ -540,8 +540,8 @@
     \typeout{* This is a master report *}
     \typeout{*                         *}
     \typeout{*                         *}
-    \def\doc@type{report}   % for master report 
-    \def\DOC@TYPE{REPORT}   % the document type 
+    \def\doc@type{report}   % for master report
+    \def\DOC@TYPE{REPORT}   % the document type
                             % is "report" (MAL, 3/12/98)
 %
 %\def\previous@degrees{B.S.}
@@ -555,7 +555,7 @@
 \def\certif@words{ }		%	13 Mar 2002	cwm
 %
 \def\approvalwords{%
-         \leftline{\hbox to 2.5in{}APPROVED BY\hfill}            % 
+         \leftline{\hbox to 2.5in{}APPROVED BY\hfill}            %
          \leftline{\hbox to 2.5in{}SUPERVISING COMMITTEE:\hfill} %
                                            }                     %
     \def\pubnum{}           % (M.A.L. 3/18/98)
@@ -572,9 +572,9 @@
     \typeout{* This is a dissertation *}
     \typeout{*                        *}
     \typeout{*                        *}
-    \def\doc@type{dissertation}   % for dissertation 
-    \def\DOC@TYPE{DISSERTATION}   % the document type 
-                                  % is "dissertation" 
+    \def\doc@type{dissertation}   % for dissertation
+    \def\DOC@TYPE{DISSERTATION}   % the document type
+                                  % is "dissertation"
 %
 \def\previous@degrees{B.S., M.S.}
 \def\target@degree{Ph.D.}
@@ -582,9 +582,9 @@
 %
 \def\certif@words{		%	26 Aug 2001	cwm
 	\centerline{The Dissertation Committee for \au@thor}
-	\centerline{certifies that this is the approved version\ 
-		of the following dissertation:}		
-                                           }			
+	\centerline{certifies that this is the approved version\
+		of the following dissertation:}
+                                           }
 %
 \def\approvalwords{%		%	22 Jul 2001	cwm
          \leftline{\hbox to 2.5in{}Committee:\hfill}		%
@@ -628,11 +628,11 @@
 \def\author#1{\def\au@thor{#1}\def\AU@THOR{\uppercase{#1}}}
 
 % new definition of TI@TLE, must be double spaced (M.A.L. 8/14/96)
-%\def\title#1{\def\TI@TLE{\double@space\uppercase{#1}}} 
+%\def\title#1{\def\TI@TLE{\double@space\uppercase{#1}}}
 %
 % The Graduate School now permits mixed case.
 % New definition of ti@tle.		22 Jul 2001	cwm
-\def\title#1{\def\ti@tle{\double@space{#1}}} 
+\def\title#1{\def\ti@tle{\double@space{#1}}}
 
 \def\previousdegrees#1{\def\previous@degrees{#1}}
 \def\degreeabbr#1{\def\target@degree{#1}}
@@ -720,7 +720,7 @@
 %
 % Read in \supervisor variable. Count and separate supervisor's
 % and co-supervisors' names.		04 Oct 2001	cwm
-% 
+%
 \def\supervisor{%
     \@ifnextchar [{\greaterthan1supervisor}{\onesupervisor}}
 \def\greaterthan1supervisor[#1]{%
@@ -741,7 +741,7 @@
 %
 % Read in \committeemembers variable. Count and separate committee
 % members' names.			04 Oct 2001	cwm
-% 
+%
 \def\committeemembers{%
     \@ifnextchar [{\morethanonemember}
 	{\onecommitteemember}}
@@ -890,7 +890,7 @@
 
 %
 %       Acknowledgments
-% 
+%
 \def\acknowledgments{%
     \shortchapter*{Acknowledgments}
     \addcontentsline{toc}{chapter}{Acknowledgments}
@@ -907,8 +907,8 @@
 %
 %       Abstract Page
 
-% Here it has been necessary to change the name of the keyword 
-% for the abstract, otherwise it resets automatically the page 
+% Here it has been necessary to change the name of the keyword
+% for the abstract, otherwise it resets automatically the page
 % number to 1 (Miguel A. Lerma).
 
 \def\utabstract{\clearpage      % <-
@@ -916,7 +916,7 @@
     \setcounter{regular@short}{1}
     \pagestyle{plain}
     \addcontentsline{toc}{chapter}{Abstract}
-    \baselineskip 14pt plus .5pt minus .2 pt    
+    \baselineskip 14pt plus .5pt minus .2 pt
     \begin{center}
      \baselineskip=22.5pt plus .5pt minus .2 pt
 %
@@ -1009,7 +1009,6 @@
 \def\vitahead{\chapter*{Vita}\thispagestyle{plain}
     \addcontentsline{toc}{chapter}{Vita} }
 \def\vitatail{ \par\vfill\par
-    \noindent Permanent address: \parbox[t]{3.5in}{\raggedright\add@ress}
     \vfill\par\noindent
     \renewcommand{\thefootnote}{\fnsymbol{footnote}}
     This \doc@type{} was typeset
@@ -1021,4 +1020,4 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Default is double spacing. %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\doublespacing 
+\doublespacing
