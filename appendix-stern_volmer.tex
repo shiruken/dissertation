@@ -1,0 +1,56 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Appendix A - Derivation of the Stern-Volmer Relationship
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Derivation of the Stern-Volmer Relationship}
+
+Upon absorption of radiation, a phosphorescent molecule is excited from its singlet ground state ($S_0$) to an excited singlet state ($S_1$) while maintaining the pairing of its electron spins. The excited singlet state can then non-radiatively transition to an excited triplet state ($T_1$) through a process known as intersystem crossing. This results in the unpairing of its ground and excited state electron spins.
+
+The excited triplet state molecule can return back to its singlet ground state through either radiative or non-radiative relaxation. The radiative relaxation from the excited triplet state to the singlet ground state is known as phosphorescence and occurs with a decay rate $k_{r}$. Non-radiative relaxation occurs through intersystem crossing at a decay rate $k_{n-r}$. Collision with ground triplet state molecular oxygen (\ce{^3O2}) can quench the excited triplet state molecule back to its singlet ground state while producing excited singlet state oxygen (\ce{^1O2}). This transfer of electronic excitation energy can be modeled as a first order reaction with a decay rate proportional to the product of the quenching constant ($k_{q}$) and the concentration of dissolved oxygen ([\ce{O2}]).
+%
+The overall rate equation can be expressed as:
+%
+\begin{equation}
+    \frac{d[P^*]}{dt} = -(k_{r} + k_{n-r} + k_{q}[O_{2}])[P^{*}]
+\end{equation}
+%
+where $[P^{*}]$ denotes the number of excited triplet state molecules. Assuming that $[O_{2}] >> [P^{*}]$, then the rate equation can be integrated to:
+%
+\begin{equation}
+    [P^*] = -[P^{*}]_{0}e^{-(k_{r} + k_{n-r} + k_{q}[O_{2}])t}
+\end{equation}
+%
+The lifetime in the presence of the quencher ($\tau$) can then be defined by inversion of the overall decay rate:
+%
+\begin{equation}
+    \tau = \frac{1}{k_{r} + k_{n-r} + k_{q}[O_{2}]}
+\end{equation}
+%
+In the absence of the quencher ($[O_2] = 0$), the lifetime can be simplified to:
+%
+\begin{equation}
+    \tau_{0} = \frac{1}{k_{r} + k_{n-r}}
+\end{equation}
+%
+and used to normalize the lifetime in the presence of the quencher:
+%
+\begin{equation}
+    \frac{\tau_{0}}{\tau} = \frac{k_{r} + k_{n-r} + k_{q}[O_{2}]}{k_{r} + k_{n-r}}
+\end{equation}
+%
+This can be simplified to a linear expression known as the Stern-Volmer Relationship:
+%
+\begin{equation}
+    \frac{\tau_{0}}{\tau} = 1 + k_{q}\tau_{0}[O_{2}]
+\end{equation}
+%
+Using Henry's Law for dissolved gases at the sample temperature, the molecular oxygen concentration [\ce{O2}] can be related to the partial pressure of oxygen (\ce{pO2}) as follows:
+%
+\begin{equation}
+    \begin{split}
+        \frac{\tau_{0}}{\tau} & = 1 + k_{q}\tau_{0}K_{H}[O_{2}] \\
+        & = 1 + k_{q}\tau_{0}[pO_{2}]
+    \end{split}
+\end{equation}
+%
+Lifetime can also be calibrated against a standard that quantifies either the [\ce{O2}] or \ce{pO2} in a solution that matches the pH, atmospheric pressure, temperature, and salinity of the desired sample environment.

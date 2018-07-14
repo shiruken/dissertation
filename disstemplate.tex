@@ -1,122 +1,54 @@
-% Create the document using the UT dissertation style
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Create report using UT dissertation style
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[12pt]{report}
 \usepackage{utdiss2}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Load the necessary packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{amsmath,amsthm,amsfonts,amscd}
-				% Some packages to write mathematics.
-\usepackage{eucal} 	 	% Euler fonts
-\usepackage{verbatim}      	% Allows quoting source with commands.
-\usepackage{makeidx}       	% Package to make an index.
-% \usepackage{psfig}         	% Allows inclusion of eps files.
-\usepackage{epsfig}         	% Allows inclusion of eps files.
-% \usepackage{citesort}         	%
-\usepackage{url}		% Allows good typesetting of web URLs.
-%\usepackage{draftcopy}		% Uncomment this line to have the
-				% word, "DRAFT," as a background
-				% "watermark" on all of the pages of
-				% of your draft versions. When ready
-				% to generate your final copy, re-comment
-				% it out with a percent sign to remove
-				% the word draft before you re-run
-				% Makediss for the last time.
+\usepackage{eucal}
+\usepackage{verbatim}
+\usepackage{makeidx}
+\usepackage{epsfig}
+\usepackage{cite}
+\usepackage{url}
+\usepackage[version=4]{mhchem}
 
-\author{Colin Tan Sullender}  	% Required
+\usepackage[english]{babel}
+\usepackage{blindtext}
 
-\address{1900 Simond Avenue 3056\\ Austin, Texas 78723}  % Required
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Required personal information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\author{Colin Tan Sullender}
+\address{}
 \title{Writing a Doctoral Dissertation with \LaTeX{} at
 		the University of Texas at Austin}
-                                                    % Required
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% NOTICE: The total number of supervisors and other members %%%%%%%%%%
-%%%%%%%%%%%%%%% MUST be seven (7) or less! If you put in more, %%%%%%%
-%%%%%%%%%%%%%%% they are put on the page after the Committee %%%%%%%%%
-%%%%%%%%%%%%%%% Certification of Approved Version page. %%%%%%%%%%%%%%
+% Required degree and dissertation information
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\previousdegrees{Ph.D.}
+\graduationmonth{August}
+\graduationyear{2018}
+\typist{the author}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% Enter names of the supervisor and co-supervisor(s), if any,
-% of your dissertation committee. Put one name per line with
-% the name in square brackets. The name on the last line, however,
-% must be in curly braces.
-%
-% If you have only one supervisor, the entry below will read:
-%
-%	\supervisor
-%		{Supervisor's Name}
-%
-% NOTE: Maximum three supervisors. Minimum one supervisor.
-% NOTE: The Office of Graduate Studies will accept only two supervisors!
-%
-%
+% Define names of supervisor(s) and committee members
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \supervisor
 	{Andrew K. Dunn}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% Enter names of the other (non-supervisor) members(s) of your
-% dissertation committee. Put one name per line with the name
-% in square brackets. The name on the last line, however, must
-% be in curly braces.
-%
-% NOTE: Maximum six other members. Minimum zero other members.
-% NOTE: The Office of Graduate Studies may restrict you to a total
-%	of six committee members.
-%
-%
 \committeemembers
     [Theresa A. Jones]
     [Chong Xie]
     [James W. Tunnell]
     {Ming-Chieh Ding}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\previousdegrees{B.S., M.S.E.}
-     % The abbreviated form of your previous degree(s).
-     % E.g., \previousdegrees{B.S., MBA}.
-     %
-     % The default value is `B.S., M.S.'
-
-\graduationmonth{August}
-     % Graduation month, either May, August, or December, in the form
-     % as `\graduationmonth{May}'. Do not abbreviate.
-     %
-     % The default value (either May, August, or December) is guessed
-     % according to the time of running LaTeX.
-
-\graduationyear{2018}
-     % Graduation year, in the form as `\graduationyear{2001}'.
-     % Use a 4 digit (not a 2 digit) number.
-     %
-     % The default value is guessed according to the time of
-     % running LaTeX.
-
-\typist{the author}
-     % The name(s) of typist(s), put `the author' if you do it yourself.
-     % E.g., `\typist{Maryann Hersey and the author}'.
-     %
-     % The default value is `the author'.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Commands for master's theses and reports.			     %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% If the degree you're seeking is NOT Doctor of Philosophy, uncomment
-% (remove the % in front of) the following two command lines (the ones
-% that have the \ as their second character).
-%
-%\degree{MASTER OF ARTS}
-%\degreeabbr{M.A.}
-
-% Uncomment the line below that corresponds to the type of master's
-% document you are writing.
-%
-%\masterreport
-%\masterthesis
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -192,7 +124,6 @@
 %
 %	Here some macros that are needed in this document:
 
-
 \newcommand{\latexe}{{\LaTeX\kern.125em2%
                       \lower.5ex\hbox{$\varepsilon$}}}
 
@@ -208,96 +139,61 @@
 \def\square{\RIfM@\bgroup\else$\bgroup\aftergroup$\fi
   \vcenter{\hrule\hbox{\vrule\@height.6em\kern.6em\vrule}%
                                               \hrule}\egroup}
+
 \makeatother		% Ends sections where @ is considered a letter.
 			% Now @ cannot be used in commands.
 
 \makeindex    % Make the index
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%		The document starts here.			     %
+% BEGIN DOCUMENT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{document}
 
-\copyrightpage          % Produces the copyright page.
-
-
-%
-% NOTE: In a doctoral dissertation, the Committee Certification page
-%		(with signatures) is BEFORE the Title page.
-%	In a masters thesis or report, the Signature page
-%		(with signatures) is AFTER the Title page.
-%
-%	If you are writing a masters thesis or report, you MUST REVERSE
-%	the order of the \commcertpage and \titlepage commands below.
-%
-\commcertpage           % Produces the Committee Certification
-			%   of Approved Version page (doctoral)
-			%   or Signature page (masters).
-			%		20 Mar 2002	cwm
-
-\titlepage              % Produces the title page.
-
+\copyrightpage      % Produces the copyright page
+\commcertpage       % Produces the doctoral Committee Certification of Approved Version page
+\titlepage          % Produces the title page
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Dedication and/or epigraph are optional, but must occur here.      %
+% Dedication and Acknowledgements
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
 \begin{dedication}
-\index{Dedication@\emph{Dedication}}%
-Dedicated to people.
+To my family, friends, and teachers.
 \end{dedication}
 
 
-\begin{acknowledgments}		% Optional
-\index{Acknowledgments@\emph{Acknowledgments}}%
+\begin{acknowledgments}
 I wish to thank the multitudes of people who helped me. Time would
 fail me to tell of \ldots
 \end{acknowledgments}
 
 
-% The abstract is required. Note the use of ``utabstract'' instead of
-% ``abstract''! This was necessary to fix a page numbering problem.
-% The abstract heading is generated automatically.
-% Do NOT use \begin{abstract} ... \end{abstract}.
-%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Abstract
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \utabstract
-\index{Abstract}%
 \indent
-This document has the form of a ``fake'' doctoral dissertation
-in order to provide an example of such, but it is actually a
-copy of Miguel Lerma's documentation for the Mathematics
-Department Computer Seminar of 25 March 1998 updated in July 2001
-and following by Craig McCluskey to meet the March 2001
-requirements of the Graduate School.
-
-This document and its source file show to write a Doctoral Dissertation using
-\LaTeX{} and the utdiss2 package.
-
-
-
-\tableofcontents   % Table of Contents will be automatically
-                   % generated and placed here.
-
-\listoftables      % List of Tables and List of Figures will be placed
-\listoffigures     % here, if applicable.
-
+This document has the form of a ``fake'' doctoral dissertation in order to provide an example of such, but it is actually a
+copy of Miguel Lerma's documentation for the Mathematics Department Computer Seminar of 25 March 1998 updated in July 2001
+and following by Craig McCluskey to meet the March 2001 requirements of the Graduate School.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Actual text starts here.					     %
+% Table of Contents + List of Tables and Figures
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% Including external files for each chapter makes this document simpler,
-% makes each chapter simpler, and allows for generating test documents
-% with as few as zero chapters (by commenting out the include statements).
-% This allows quicker processing by the Makediss command file in case you
-% are not working on a specific, long and slow to compile chapter. You
-% can even change the chapter order by merely interchanging the order
-% of the include statements (something I found helpful in my own
-% dissertation).
-%
+\tableofcontents
+\listoftables
+\listoffigures
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin Document Body
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Chapter 1 - Introduction
+\include{chapter-1-introduction}
+
 \include{chapter-introduction}
 
 \include{chapter-instructions}
@@ -312,78 +208,42 @@ This document and its source file show to write a Doctoral Dissertation using
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Appendix/Appendices                                                %
+% Appendix/Appendices
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % If you have only one appendix, use the command \appendix instead
 % of \appendices.
 %
 \appendices
-\index{Appendices@\emph{Appendices}}%
+
+% Appendix A - Derivation of the Stern-Volmer Relationship
+\include{appendix-stern_volmer}
+
+% Appendix B - Sterile Cranial Window Surgical Preparation
+\include{appendix-cranial_window}
+
 
 \include{chapter-appendix1}
-
 \include{chapter-appendix2}
-
 \include{chapter-appendix3}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Generate the bibliography.					     %
+% Bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%								     %
-% NOTE: For master's theses and reports, NOTHING is permitted to     %
-%	come between the bibliography and the vita. The command      %
-%	to generate the index (if used) MUST be moved to before      %
-%	this section.						     %
-%								     %
-\nocite{*}      % This command causes all items in the 		     %
-                % bibliographic database to be added to 	     %
-                % the bibliography, even if they are not 	     %
-                % explicitly cited in the text. 		     %
-		%						     %
-\bibliographystyle{plain}  % Here the bibliography 		     %
-\bibliography{diss}        % is inserted.			     %
-\index{Bibliography@\emph{Bibliography}}%			     %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{unsrt}
+\bibliography{bibliography.bib}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Generate the index.						     %
+% Vita
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%								     %
-% NOTE: For master's theses and reports, NOTHING is permitted to     %
-%	come between the bibliography and the vita. This section     %
-%	to generate the index (if used) MUST be moved to before      %
-%	the bibliography section.				     %
-%								     %
-\printindex%    % Include the index here. Comment out this line      %
-%		% with a percent sign if you do not want an index.   %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Vita page.							     %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{vita}
-Craig William McCluskey
-was born in Minneapolis, Minnesota on 20 May 1950, the son of
-Dr. William R. McCluskey and Lucilla W. McCluskey.  He received the Bachelor
-of Science degree in Engineering from the California Institute of Technology
-and was commissioned an Officer in the United States Air Force in 1971.
-He entered active duty in October, 1971, and was stationed in Denver, Colorado,
-Colorado Springs, Colorado, Panama City, Florida, and Sacramento, California.
-He separated from the USAF in 1975 and worked as an engineer for several small
-electronics companies in California before moving to Colorado Springs, Colorado
-to work for Hewlett-Packard in 1979. He left Hewlett-Packard in 1989 and joined
-a small company based in Herndon, Virginia, working out of his house as a
-``remote'' engineer designing parts of the Alexis satellite for Los Alamos
-National Laboratories. Laid off when his portion of the satellite was
-completed, he applied to the University of Texas at Austin for enrollment
-in their physics program. He was accepted and started graduate studies in
-August, 1991.
-
+Colin Tan Sullender was born in Birmingham, Alabama in 1988 to Wayne Sullender and Thuan Hong Tan. He graduated from Homewood High School in Homewood, Alabama in 2007. He pursued a Bachelor of Science in bioengineering at the University of Washington in Seattle and graduated in 2011 with College Honors in Bioengineering. As an undergraduate, he worked as a research assistant in the laboratory of Dr. Wendy E. Thomas. He began his doctorate in biomedical engineering at The University of Texas at Austin in 2011 in the laboratory of Dr. Andrew K. Dunn working on the development of novel optical imaging systems for studying ischemic stroke. He completed his Master of Science in Engineering in biomedical engineering in 2016 and completed his doctoral degree in August 2018.
 \end{vita}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
