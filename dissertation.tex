@@ -11,6 +11,10 @@
 \usepackage{microtype}              % Refined typesetting
 \usepackage{amsmath,amsfonts,bm}       % Math
 \usepackage[version=4]{mhchem}      % Chemical Formulae
+\usepackage{booktabs}
+\usepackage{makecell}
+\renewcommand\theadfont{\bfseries}
+
 
 \usepackage[english]{babel}
 \usepackage{blindtext}
@@ -21,7 +25,7 @@
 \author{Colin Tan Sullender}
 \title{Writing a Doctoral Dissertation with \LaTeX{} at the University of Texas at Austin}
 \previousdegrees{Ph.D.}
-\graduationmonth{August}
+\graduationmonth{December}
 \graduationyear{2018}
 \typist{the author}
 
@@ -100,8 +104,7 @@ To my family, friends, and teachers.
 
 
 \begin{acknowledgments}
-I wish to thank the multitudes of people who helped me. Time would
-fail me to tell of \ldots
+I stand on the shoulders of giants
 \end{acknowledgments}
 
 
@@ -129,6 +132,9 @@ and following by Craig McCluskey to meet the March 2001 requirements of the Grad
 
 % Chapter 1 - Introduction
 \include{chapter-1-introduction}
+
+% Chapter 2 - Simultaneous Imaging of Cerebral Blood Flow and Oxygen Tension
+\include{chapter-2}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
