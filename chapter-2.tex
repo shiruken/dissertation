@@ -8,7 +8,7 @@ Measurements of hemodynamic parameters in cerebral vasculature have been invalua
 
 In 2010, Ponticorvo and Dunn \cite{Ponticorvo:2010uv} detailed a dual-modality imaging system capable of simultaneously measuring cerebral blood flow (CBF) and oxygen tension (\ce{pO2}) in cortical vasculature. The system combined laser speckle contrast imaging (LSCI) and oxygen-dependent quenching of phosphorescence. An unpublished modification to the system added multispectral reflectance imaging for measurements of oxy- and deoxyhemoglobin \cite{Ponticorvo:2010ur}. The primary innovation of this design was the use of a digital micromirror device (DMD) to achieve spatial localization of the phosphorescent signal. A DMD is an optical semiconductor device that consists of a two-dimensional array of thousands of individually addressable mirrors that can be tilted to spatially modulate light. By patterning excitation light, phosphorescence could be constrained to only the targeted regions of interest, which allowed the use of high sensitivity point detectors. This overcame the traditional limitations of spatially-resolved phosphorescence imaging that either required the use of expensive laser scanning systems \cite{Yaseen:2009ep, Kazmi:2013ey} or exposure-gated cameras \cite{Shonat:2003ia, Sakadzic:2009jo}.
 
-However, a major limitation of this system was the phosphorescent probe Oxyphor R2 \cite{Dunphy:2002tz}, which required conjugation with albumin in order to remain stable \textit{in vivo}. The system was also optically limited to only targeting large regions of the field of view for \ce{pO2} measurements and was incapable of performing multiple actions simultaneously with the DMD. This chapter details a redesign of the system by Ponticorvo and Dunn \cite{Ponticorvo:2010uv} with the goal of improving the spatial and temporal resolutions of both imaging modalities through implementation of newer hardware and a more robust oxygen-sensitive phosphorescent probe.
+However, a major limitation of this system was the phosphorescent probe Oxyphor R2 \cite{Dunphy:2002tz}, which required conjugation with albumin in order to remain stable \textit{in vivo}. The system was also optically limited to only targeting large regions of the field of view (FOV) for \ce{pO2} measurements and was incapable of performing multiple actions simultaneously with the DMD. This chapter details a redesign of the system by Ponticorvo and Dunn \cite{Ponticorvo:2010uv} with the goal of improving the spatial and temporal resolutions of both imaging modalities through implementation of newer hardware and a more robust oxygen-sensitive phosphorescent probe.
 
 
 
@@ -17,7 +17,7 @@ However, a major limitation of this system was the phosphorescent probe Oxyphor 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Instrumentation}
 
-The following dual-modality imaging system combines LSCI with oxygen-dependent quenching of phosphorescence for the simultaneous measurement of CBF and \ce{pO2}. Because LSCI is rarely light-limited, the optical design is focused on the projection of patterned excitation light off the DMD and the efficient collection of the emitted phosphorescence. The spectral cutoffs for the system were dictated by the new phosphorescent probe, Oxyphor PtG4 \cite{Esipova:2011hi}, an oxygen-sensitive dendritic probe that contains Platinum(II)-\textit{meso}-tetra-(3,5-dicarboxyphenyl)tetrabenzoporphyrin (PtTBP) as the phosphorescent core. Unlike its predecessors Oxyphor R2 and G2 \cite{Dunphy:2002tz}, which were limited to albumin-rich environments for stability, Oxyphor PtG4 is encapsulated within a hydrophobic dendrimer and PEGylated to increase solubility and biocompatibility. These modifications provide increased stability across a wider range of temperatures and pH values and eliminate the need for conjugation with blood proteins \cite{Esipova:2011hi}. Oxyphor PtG4 has two excitation maxima near 435 nm (Soret) and 623 nm (Q band) and a broad emission spectra peaking at 782 nm (Figure \ref{fig:oxyphor_ptg4}A). The probe was calibrated under physiological conditions (37 $^\circ$C, pH 7.2) by measuring the phosphorescent decay lifetime ($\tau$) as the environmental \ce{pO2} was increased from 0 mmHg to 160 mmHg (Figure \ref{fig:oxyphor_ptg4}B). The unquenched lifetime ($\tau_0$) is 47 $\mu$s in an oxygen-free environment.
+The following dual-modality imaging system combines LSCI with oxygen-dependent quenching of phosphorescence for the simultaneous measurement of CBF and \ce{pO2}. Because LSCI is rarely light-limited, the optical design is focused on the projection of patterned excitation light off the DMD and the efficient collection of the emitted phosphorescence. The spectral cutoffs for the system were dictated by the new phosphorescent probe, Oxyphor PtG4 \cite{Esipova:2011hi}, an oxygen-sensitive dendritic probe that contains Platinum(II)-\textit{meso}-tetra-(3,5-dicarboxyphenyl)tetrabenzoporphyrin (PtTBP) as the phosphorescent core.
 
 % Figure - Oxyphor PtG4 Spectra + Calibration
 \begin{figure}
@@ -28,10 +28,12 @@ The following dual-modality imaging system combines LSCI with oxygen-dependent q
     }
 \end{figure}
 
+Unlike its predecessors Oxyphor R2 and G2 \cite{Dunphy:2002tz}, which were limited to albumin-rich environments for stability, Oxyphor PtG4 is encapsulated within a hydrophobic dendrimer and PEGylated to increase solubility and biocompatibility. These modifications provide increased stability across a wider range of temperatures and pH values and eliminate the need for conjugation with blood proteins \cite{Esipova:2011hi}. Oxyphor PtG4 has two excitation maxima near 435 nm (Soret) and 623 nm (Q band) and a broad emission spectra peaking at 782 nm (Figure \ref{fig:oxyphor_ptg4}A). The probe was calibrated under physiological conditions (37 $^\circ$C, pH 7.2) by measuring the phosphorescent decay lifetime ($\tau$) as the environmental \ce{pO2} was increased from 0 mmHg to 160 mmHg (Figure \ref{fig:oxyphor_ptg4}B). The unquenched lifetime ($\tau_0$) is 47 $\mu$s in an oxygen-free environment.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Optical System}
 
-The schematic of the optical system can be seen in Figure \ref{fig:systemschematic_1}. The excitation and emission spectra of Oxyphor PtG4 dictated laser selection and dichroic beamsplitter cutoff wavelengths. LSCI was performed using a 685 nm laser diode (50 mW, HL6750MG, Thorlabs, Inc.) illuminating the sample at an oblique angle. The laser was mounted in a temperature-controlled housing (TCLDM9, Thorlabs, Inc.) and collimated with a slight divergence using an aspheric lens (C240TME-B, Thorlabs, Inc.) to illuminate the entire field of view. The operating current was set using a laser diode controller (LDC202, Thorlabs, Inc.) and the diode temperature regulated using a temperature controller (TED200C, Thorlabs, Inc.). The scattered light was relayed through a pair of dichroic beamsplitters and a bandpass filter (685$\pm$40 nm, S685/40m, Chroma Technology Corp.) to a CMOS camera (acA1300-60gmNIR, 1280 x 1024 pixels, Basler AG) with 2x magnification for a field of view of 3.5 x 2.8 mm. The camera was controlled via the Basler Pylon API using custom software written in C++ (i.e. the "Speckle Software").
+The schematic of the optical system can be seen in Figure \ref{fig:systemschematic_1}. The excitation and emission spectra of Oxyphor PtG4 dictated laser selection and dichroic beamsplitter cutoff wavelengths. LSCI was performed using a 685 nm laser diode (50 mW, HL6750MG, Thorlabs, Inc.) illuminating the sample at an oblique angle. The laser was mounted in a temperature-controlled housing (TCLDM9, Thorlabs, Inc.) and collimated with a slight divergence using an aspheric lens (C240TME-B, Thorlabs, Inc.) to illuminate the entire FOV. The operating current was set using a laser diode controller (LDC202, Thorlabs, Inc.) and the diode temperature regulated using a temperature controller (TED200C, Thorlabs, Inc.). The scattered light was relayed through a pair of dichroic beamsplitters and a bandpass filter (685$\pm$40 nm, S685/40m, Chroma Technology Corp.) to a CMOS camera (acA1300-60gmNIR, 1280 x 1024 pixels, Basler AG) with 2x magnification for a FOV of 3.5 x 2.8 mm. The camera was controlled via the Basler Pylon API using custom software written in C++ (i.e. the "Speckle Software").
 
 % Figure - System Schematic (Ver. 1)
 \begin{figure}
@@ -44,7 +46,7 @@ The schematic of the optical system can be seen in Figure \ref{fig:systemschemat
 
 Separately, two different lasers at 445 nm and 637 nm were selected to target the Soret and Q band excitation maxima of Oxyphor PtG4. Each laser can be used independently to collect phosphorescence lifetime measurements with different penetration depths and sample volumes because of their wavelengths. The 445 nm laser (200 mW, AixiZ) is a packaged device with a 4 mm collimated output that operates at a fixed current with convection cooling. The beam size was reduced to 1 mm and gated using an 80 MHz acousto-optic modulator (23080-2-LTD AOM and 21080-1AM RF Driver, Neos Technologies, Inc.). The 637 nm laser diode (250 mW, HL6388MG, Thorlabs, Inc.) was mounted in a temperature-controlled housing (LDM21, Thorlabs, Inc.) and collimated using an aspheric lens (C330TME-B, Thorlabs, Inc.). The laser was directly gated using its driver (LDD400-1P, Wavelength Electronics, Inc.) and the diode temperature regulated using an external temperature controller (300B, Newport Corp.). Both lasers were gated via analog modulation to produce 20 $\mu$s pulses of light for time domain lifetime measurements.
 
-The lasers were coaligned using a dichroic beamsplitter (DMLP490, Thorlabs, Inc.) and coupled into a fiber optic patch cord (P600-2-VIS-NIR, Ocean Optics, Inc.) with a 600 $\mu$m core size. The modulated laser light was relayed to the primary imaging system via the patch cord and re-collimated to illuminate the DMD. A DLP LightCrafter Evaluation Module (Texas Instruments) was modified to expose the bare DMD (DLP3000, 608 x 684 pixels, 7.6 $\mu$m pitch) for illumination. The spatially patterned modulated light was then relayed to the sample with 0.5x magnification to selectively excite Oxyphor PtG4 for lifetime measurements.
+The lasers were coaligned using a dichroic beamsplitter (DMLP490, Thorlabs, Inc.) and coupled into a fiber optic patch cord (P600-2-VIS-NIR, Ocean Optics, Inc.) with a 600 $\mu$m core size. The modulated laser light was relayed to the primary imaging system via the patch cord and re-collimated to illuminate the DMD. A DLP LightCrafter Evaluation Module (Texas Instruments) was modified to expose the bare DMD (DLP3000, 608 x 684 pixels, 7.6 $\mu$m pitch, Texas Instruments) for illumination. The spatially patterned modulated light was then relayed to the sample with 0.5x magnification to selectively excite Oxyphor PtG4 for lifetime measurements.
 
 The emitted phosphorescence was separated from the excitation and scattered LSCI laser light using a pair of dichroic beamsplitters (650 nm, ZT640rdc, Chroma Technology and 750 nm, FF750-SDi02, Semrock, Inc.) and a bandpass filter (810$\pm$90 nm, ET810/90m, Chroma Technology Corp.) and relayed to a photomultiplier tube for detection (H7422P-50, Hamamatsu Photonics K.K.). Figure \ref{fig:systemspectra} contains an overview of the spectral separation in the imaging system and Table \ref{tab:filters} details each filter in the primary imaging path.
 
@@ -73,26 +75,145 @@ The emitted phosphorescence was separated from the excitation and scattered LSCI
     \end{tabular}}
 \end{table}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Acquisition Control} \label{ssec:acquisition_control}
 
+An overview of the control system can be seen in Figure \ref{fig:controlschematic}. Both LSCI and the phosphorescence lifetime measurements were performed simultaneously using a single computer. The LSCI acquisition is controlled via the Speckle Software, which implements the Basler Pylon API for comprehensive control of the GigE camera. The Speckle Software allows for the real-time calculation, display, and writing of speckle contrast imagery using an efficient processing algorithm \cite{Tom:2008tg}. The camera was operated with a 5 ms exposure time, which is standard for \textit{in vivo} microvasculature studies using LSCI \cite{Yuan:2005tj}. Raw intensity images were acquired in bursts and saved at an effective 60 frames per second (fps) at an 8-bit bit depth. The computed speckle contrast images were saved as single-precision floating-point numbers and averaged together ($n$ = 45 frames) during post-processing for a final frame rate of 1.33 fps. A standard LSCI acquisition produced data at a rate of 55 MB/s.
+
+% Figure - System Control Schematic
+\begin{figure}
+    \includegraphics{figures/chapter_2/controlschematic.pdf}
+    \caption {
+        \label{fig:controlschematic}
+        Imaging system control schematic. The phosphorescence excitation waveform can be sent to either the AOM for modulating the 445 nm laser or the LDD for modulation the 637 nm laser.
+    }
+\end{figure}
+
+The Speckle Speckle software was also modified to control the DMD via its Ethernet-over-USB command interface. Users can define arbitrarily-shaped regions of interest (ROIs) using the LSCI camera as reference and upload the resulting binary masks to the DMD for the patterning of excitation light. Registration between the camera and the projected pattern can be performed using the Speckle Software to guarantee alignment with the reference image (see Section \ref{ssec:dmd_registration}). Individual patterns or timed pattern sequences can be uploaded and displayed on the DMD, with a TTL pulse emitted on each pattern change.
+
+While the Speckle Software controls the patterning of excitation light for the lifetime measurements, a separate LabVIEW (National Instruments Corp.) program controls the waveform generation and phosphorescence decay acquisition. A field-programmable gate array (FPGA) operating on a single-cycle timed loop oversees digital-to-analog (DAC) and analog-to-digital (ADC) conversion. The FlexRIO FPGA (PXIe-7965R, National Instruments Corp.) and 100 MHz transceiver module (NI-5781, National Instruments Corp.) reside in a PXI chassis (PXIe-1082, National Instruments Corp.) with a high-bandwidth embedded controller (PXIe-8130, National Instruments Corp.). The FPGA communicates with the host computer over a 1 Gigabit Ethernet connection.
+
+Waveform generation and acquisition occur simultaneously on the FPGA with each complete cycle taking 32,768 ticks at the 100 MHz clock rate. Each cycle is triggered upon DMD pattern change via TTL through an auxiliary input on the transceiver. The excitation waveform contains a 20 $\mu$s square pulse (2,000 ticks) for an overall 6\% duty cycle and is output from the transceiver DAC between 0-1 V. If the 445 nm laser is being used, then the analog signal is directed into the AOM. If the 637 nm laser is being used, then the output is inverted and connected to the laser diode driver. The resulting phosphorescence is detected by the PMT and amplified at a fixed 50 mV/$\mu$A gain at 10 MHz (C9999, Hamamatsu Photonics K.K.). The analog signal is digitized by the transceiver ADC with a 14-bit depth resolution. In order to reduce the amount of data being saved, the FPGA accumulates the sum of $n$ cycles of phosphorescent decays before transferring to the host computer via a direct memory access (DMA) FIFO buffer. The LabVIEW program writes the accumulated phosphorescent signal to a binary file (32-bit integer) for post-processing. An optional setting enables on-the-fly fitting of the phosphorescence decay curve for $\tau$ and estimates the \ce{pO2} using the Oxyphor PtG4 calibration curve. However, this added computation can result in DMA FIFO overflow at higher acquisition speeds.
+
+% Table - Lifetime Measurement Settings
+\begin{table}
+    \caption{Common acquisition settings for the phosphorescence lifetime measurements ($n$ = number of DMD patterns). Raw data is acquired by the FPGA at a rate of 160 MB/s.}
+    \label{tab:lifetime_settings}
+    \centering
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{cccc} \addlinespace \toprule
+        \thead{\makecell{Pattern Rate \\ (Hz)}} & \thead{\makecell{Decays Accumulated \\ (per Pattern)}} & \thead{\makecell{Temporal \\ Resolution (s)}} & \thead{\makecell{Host Data \\ Rate (KB/s)}} \\ \midrule
+        1 & 2500 & $n$ & 64 \\ \hline
+        2 & 1250 & $n/2$ & 128 \\ \hline
+        10 & 250 & $n/10$ & 640 \\ \hline
+        50 & 50 & $n/50$ & 3200 \\ \hline
+        100 & 25 & $n/100$ & 6400 \\ \bottomrule
+    \end{tabular}}
+\end{table}
+
+Unlike LSCI, which operates at a fixed frame rate, the temporal resolution of the phosphorescence lifetime measurements is linearly dependent upon the number of patterns being displayed on the DMD and the number of decays accumulated on the FPGA. The digital controller on the DLP LightCrafter can store 96 binary patterns on its internal memory buffer and operate at a maximum pattern rate of 4000 Hz. The number of decays to accumulate on the FPGA is ultimately determined by the strength of the phosphorescent signal, which is influenced by the projected pattern size, Oxyphor PtG4 concentration, and laser power. The amount of data transferred to the host computer is inversely proportional to the number of records accumulated. Table \ref{tab:lifetime_settings} details several acquisition settings for the phosphorescence lifetime measurements with the 2 and 10 Hz pattern rates most commonly being utilized. While higher pattern rates offer higher temporal resolutions, the reduced averaging of the phosphorescent decays negatively affects the quality of the lifetime fitting.
+
+A summary of the acquisition timing can be seen in Figure \ref{fig:timingschematic} with both LSCI and the phosphorescence lifetime measurements operating simultaneously but independently. This is possible because of the spectral separation of the excitation and emission wavelengths (Figure \ref{fig:systemspectra}). Both imaging modalities share the same computer clock, so timestamps can easily be aligned during post-processing.
+
+% Figure - Acquisition Timing
+\begin{figure}
+    \includegraphics{figures/chapter_2/timingschematic.pdf}
+    \caption {
+        \label{fig:timingschematic}
+        Acquisition timing paradigm for the LSCI and phosphorescence lifetime measurements.
+    }
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Laser Speckle Contrast Imaging}
+\subsubsection{Troubleshooting}
+
+During development of the phosphorescence lifetime measurement system, two significant problems were encountered. The first was a severe bandwidth limitation in the original preamplifier (SR570, Stanford Research Systems) used to convert the current output from the PMT to a voltage signal for ADC. The preamplifier was operated in “high bandwidth” mode with no filters active and a gain of 50 mV/$\mu$A. This corresponds to a bandwidth between 200-800 kHz. The maximum possible bandwidth is 1 MHz and can only be achieved at the lowest gain setting. This bandwidth is insufficient to properly sample the phosphorescent decay curve at higher \ce{pO2} levels as $\tau$ grows exponentially shorter (Figure \ref{fig:oxyphor_ptg4}B). The limitation was identified while performing measurements under ambient conditions where \ce{pO2} \textgreater 150 mmHg. At this \ce{pO2} level, a 1 $\mu$s change in $\tau$ corresponds to over a 20 mmHg change in \ce{pO2}. The problem was resolved by transitioning to the higher bandwidth (10 MHz) preamplifier detailed in Section \ref{ssec:acquisition_control}. The \textgreater 10x increase in bandwidth allows for proper sampling of the entire physiologically-relevant portion of the Oxyphor PtG4 calibration curve.
+
+The second issue was related to the clock settings for the single-cycle timed loop on the FPGA. The PXIe-7965 FPGA module offers an onboard 40 MHz clock that was selected by default as the clock for the timed loop. However, this requires crossing clock domains from the 100 MHz sample clock on the NI-5781 transceiver to the onboard clock of the FPGA module. This can result in data corruption because the FPGA can capture data as it is actively being updated at the higher sample rate. In order to safely cross clock domains while guaranteeing data integrity, a FIFO buffer must be implemented. Alternatively, the sample clock on the transceiver module can be used as the clock for the single-cycle timed loop, which is how the issue was resolved on this system. Operating at 100 MHz does result in oversampling our expected signal, which is a problem that could be resolved by discarding unwanted samples.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{DMD Alignment and Registration} \label{ssec:dmd_registration}
+
+Proper alignment and illumination of the DMD is critical for accurately projecting the excitation light patterns. The DLP3000 DMD contains a 0.3-inch diagonal micromirror array with 608 x 684 pixels arranged in a diamond configuration with a $\pm$12$^\circ$ tilt angle (Figure \ref{fig:dmdmirror}A). The DMD must be illuminated at -24$^\circ$ from the normal for the specularly reflected light from mirrors in the ON position to be directed along the desired optical axis (Figure \ref{fig:dmdmirror}B). Light reflected from pixels in the OFF position will be directed +48$^\circ$ off axis and can easily be blocked.
+
+Because coherent light is being utilized, diffraction off the two-dimensional (2D) micromirror array must be considered. The physics are analogous to that of a 2D diffraction grating, except that two separate diffraction patterns will be formed, each influenced by the two possible mirror positions (Figure \ref{fig:dmdmirror}C). The position of the $(0,0)$ order and the intensity envelope follows the specular reflection off the tilted mirror as described above. However, all other orders are dependent upon incident angle, mirror pitch, mirror angle, and wavelength \cite{TexasInstruments:2009tr}. Isolating light from an single order at a specific wavelength requires adjusting the incident angle until the intensity envelope is aligned with the desired order. This will result in the outbound light no longer being normal to the face of the DMD, which can complicate downstream alignment. Alternatively, the diffracted light can be collimated and focused onto to the desired projection location using a pair of lenses. This effectively images the face of the DMD to the sample plane using the same alignment procedure as incoherent light.
+
+% Figure - DMD Mirror Explanation
+\begin{figure}
+    \includegraphics{figures/chapter_2/dmdmirror.pdf}
+    \caption {
+        \label{fig:dmdmirror}
+        \textbf{(A)} Mirrors are arranged in a diamond configuration on the DMD with a 7.6 $\mu$m pitch and a $\pm$12$^\circ$ tilt angle. \textbf{(B)} Mirrors in the ON position will direct incident light perpendicular to the face of the DMD while mirrors in the OFF state will direct light off axis. \textbf{(C)} Diffraction patterns produced by coherent light illuminating the DMD.
+    }
+\end{figure}
+
+Alignment of the DMD was performed using a second camera placed at the focus of the objective lens to directly image the projected light. This was necessary because the two dichroic beamsplitters prevent excitation light from reaching the primary system camera. An internal checkerboard pattern on the DLP LightCrafter and external binary masks were used to verify that the diffraction orders were properly converging onto the sample plane (Figure \ref{fig:dmdalignment}C). These images also verified the 0.5x optical magnification applied to the projected patterns. Because the DMD has a rectangular aspect ratio, the circular illuminating beam slightly underfills the active area, resulting in some peripheral mirrors being unusable for patterning. The Gaussian beam also produces a non-uniform intensity profile, which would be problematic for intensity-based imaging techniques but fortunately has minimal effect on lifetime measurements.
+
+% Figure - DMD Alignment
+\begin{figure}
+    \includegraphics{figures/chapter_2/dmdalignment.pdf}
+    \caption {
+        \label{fig:dmdalignment}
+        Test patterns used to perform and verify alignment of the DMD-projected light (Scale bars = 1 mm).
+    }
+\end{figure}
+
+In order to use the Speckle Software to define arbitrarily-shaped patterns, the camera FOV must be registered with the projection area of the DMD. An affine transform is used to translate, scale, shear, and rotate the mask from the camera coordinate system to the DMD coordinate system without linear distortion. The matrix representation of the 2D affine transform using homogeneous coordinates is defined as:
+%
+% Equation - Affine Transform
+\begin{equation}
+    \label{eq:affine}
+    \begin{bmatrix}
+        x' \\
+        y' \\
+        1  \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        a & b & c \\
+        d & e & f \\
+        0 & 0 & 1 \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        x \\
+        y \\
+        1 \\
+    \end{bmatrix}
+\end{equation}
+%
+where $(x,y)$ represent camera coordinates and $(x',y')$ represent DMD coordinates. The Speckle Software performs the registration by prompting the user to identify the positions of three sequentially projected points in the camera FOV and then solving Equation \ref{eq:affine} for the six coefficients of the transformation matrix. The user can then define an ROI using the speckle contrast image for reference and the affine transform will be applied to the mask as it is uploaded to the DMD (Figure \ref{fig:dmdregistration}).
+
+% Figure - DMD Registration
+\begin{figure}
+    \includegraphics{figures/chapter_2/dmdregistration.pdf}
+    \caption {
+        \label{fig:dmdregistration}
+        Example of the affine image transformation applied to the camera coordinate space binary mask and the resulting DMD-projected pattern as imaged using LSCI (Scale bar = 1 mm).
+    }
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Laser Diode Stability}
 
 \blindtext
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Phosphorescence Lifetime Measurements}
-
-\blindtext
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Section 2.2 - Static Oxygen Tension Measurements in Cuvettes
+% Section 2.2 - Oxygen Tension Measurements in Cuvettes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Static Oxygen Tension Measurements in Cuvettes}
+\section{Oxygen Tension Measurements in Cuvettes}
 
-\blindtext
+Phosphorescence lifetime measurements were first tested in normoxic and anoxic cuvettes of 10 $\mu$M Oxyphor PtG4. The normoxic cuvette was prepared under ambient conditions and has a \ce{pO2} equivalent to that of air ($\sim$150 mmHg). The anoxic cuvette was created using the enzymatic reaction between glucose and glucose oxidase to scavenge oxygen from the sealed environment \cite{Lo:1997he}. Phosphorescence measurements were acquired using both 445 and 637 nm excitation with all DMD pixels active. The resulting decay curves were fitted for $\tau$ and the calibration curve used to lookup the corresponding \ce{pO2} value (Figure \ref{fig:cuvette}). For both excitation wavelengths, the normoxic cuvette \ce{pO2} was 152 mmHg while the anoxic cuvette \ce{pO2} was 0 mmHg.
+
+% Figure - Cuvette pO2 Measurements
+\begin{figure}
+    \includegraphics{figures/chapter_2/cuvette.pdf}
+    \caption {
+        \label{fig:cuvette}
+        \textbf{(A)} Averaged phosphorescent decay curves ($n$ = 200) in anoxic and normoxic cuvette environments with fitted lifetimes and their corresponding \ce{pO2} values. \textbf{(B)} Excitation wavelength does not significantly affect measured \ce{pO2}.
+    }
+\end{figure}
 
 
 
