@@ -147,8 +147,6 @@ Because coherent light is being utilized, diffraction off the two-dimensional (2
     }
 \end{figure}
 
-Alignment of the DMD was performed using a second camera placed at the focus of the objective lens to directly image the projected light. This was necessary because the two dichroic beamsplitters prevent excitation light from reaching the primary system camera. An internal checkerboard pattern on the DLP LightCrafter and external binary masks were used to verify that the diffraction orders were properly converging onto the sample plane (Figure \ref{fig:dmdalignment}C). These images also verified the 0.5x optical magnification applied to the projected patterns. Because the DMD has a rectangular aspect ratio, the circular illuminating beam slightly underfills the active area, resulting in some peripheral mirrors being unusable for patterning. The Gaussian beam also produces a non-uniform intensity profile, which would be problematic for intensity-based imaging techniques but fortunately has minimal effect on lifetime measurements.
-
 % Figure - DMD Alignment
 \begin{figure}
     \includegraphics{figures/chapter_2/dmdalignment.pdf}
@@ -157,6 +155,8 @@ Alignment of the DMD was performed using a second camera placed at the focus of 
         Test patterns used to perform and verify alignment of the DMD-projected light (Scale bars = 1 mm).
     }
 \end{figure}
+
+Alignment of the DMD was performed using a second camera placed at the focus of the objective lens to directly image the projected light. This was necessary because the two dichroic beamsplitters prevent excitation light from reaching the primary system camera. An internal checkerboard pattern on the DLP LightCrafter and external binary masks were used to verify that the diffraction orders were properly converging onto the sample plane (Figure \ref{fig:dmdalignment}C). These images also verified the 0.5x optical magnification applied to the projected patterns. Because the DMD has a rectangular aspect ratio, the circular illuminating beam slightly underfills the active area, resulting in some peripheral mirrors being unusable for patterning. The Gaussian beam also produces a non-uniform intensity profile, which would be problematic for intensity-based imaging techniques but fortunately has minimal effect on lifetime measurements.
 
 In order to use the Speckle Software to define arbitrarily-shaped patterns, the camera FOV must be registered with the projection area of the DMD. An affine transform is used to translate, scale, shear, and rotate the mask from the camera coordinate system to the DMD coordinate system without linear distortion. The matrix representation of the 2D affine transform using homogeneous coordinates is defined as:
 %
@@ -204,14 +204,44 @@ where $(x,y)$ represent camera coordinates and $(x',y')$ represent DMD coordinat
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Oxygen Tension Measurements in Cuvettes}
 
-Phosphorescence lifetime measurements were first tested in normoxic and anoxic cuvettes of 10 $\mu$M Oxyphor PtG4. The normoxic cuvette was prepared under ambient conditions and has a \ce{pO2} equivalent to that of air ($\sim$150 mmHg). The anoxic cuvette was created using the enzymatic reaction between glucose and glucose oxidase to scavenge oxygen from the sealed environment \cite{Lo:1997he}. Phosphorescence measurements were acquired using both 445 and 637 nm excitation with all DMD pixels active. The resulting decay curves were fitted for $\tau$ and the calibration curve used to lookup the corresponding \ce{pO2} value (Figure \ref{fig:cuvette}). For both excitation wavelengths, the normoxic cuvette \ce{pO2} was 152 mmHg while the anoxic cuvette \ce{pO2} was 0 mmHg.
+Phosphorescence lifetime measurements were first tested in normoxic and anoxic cuvettes of 10 $\mu$M Oxyphor PtG4. The normoxic cuvette was prepared under ambient conditions and therefore has \ce{pO2} equivalent to that of air ($\sim$150 mmHg). The anoxic (0 mmHg) cuvette was created using the enzymatic reaction between glucose and glucose oxidase to scavenge oxygen from the sealed environment \cite{Lo:1997he}. Phosphorescent decays ($n$ = 200) were acquired using both 445 and 637 nm excitation with all DMD pixels in the ON position. The resulting decay curves were averaged and fitted for $\tau$ and the calibration curve used to lookup the corresponding \ce{pO2} value (Figure \ref{fig:cuvette}A). For both excitation wavelengths, the normoxic cuvette \ce{pO2} was 152 mmHg while the anoxic cuvette \ce{pO2} was 0 mmHg (Figure \ref{fig:cuvette}B).
 
 % Figure - Cuvette pO2 Measurements
 \begin{figure}
     \includegraphics{figures/chapter_2/cuvette.pdf}
     \caption {
         \label{fig:cuvette}
-        \textbf{(A)} Averaged phosphorescent decay curves ($n$ = 200) in anoxic and normoxic cuvette environments with fitted lifetimes and their corresponding \ce{pO2} values. \textbf{(B)} Excitation wavelength does not significantly affect measured \ce{pO2}.
+        \textbf{(A)} Averaged phosphorescent decay curves ($n$ = 200) in anoxic and normoxic cuvette environments with fitted lifetimes and their corresponding \ce{pO2} values. \textbf{(B)} Excitation wavelength does not affect measured \ce{pO2}.
+    }
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Fitted Lifetime Discrepancy}
+
+The lifetimes of fluorescent and phosphorescent decays are independent of excitation wavelength. Targeting the Soret or Q band absorption maxima of a porphyrin should result in identical measurements of $\tau$ since internal conversion and vibrational relaxation occur on picosecond timescales. However, discrepancies in the phosphorescent decays were identified between 445 and 637 nm excitation (Figure \ref{fig:offsetcorrection}A). Fitting the exponential decays produced different values of $\tau$ from the same cuvette depending on the excitation. Since $\tau$ cannot vary with wavelength, this discrepancy likely arises because the two lasers are modulated using different mechanisms. The 445 nm laser is optically modulated using an AOM while the 637 nm laser is electronically modulated using its driver. Ideally both light sources should be modulated using the same technique to eliminate differences in bandwidth and modulation depth that can manifest in the optical signal.
+
+In order to correct for this error, the exponential decay fitting process was modified with a temporal offset to ensure that both wavelengths would produce the same lifetime values. Figure \ref{fig:offsetcorrection}B depicts the relationship between the offset and the resulting fits for $\tau$ in the normoxic cuvette. As the offset is increased, the fitting is biased towards longer lifetimes. The optimal offsets were identified at $t$ = 21.50 $\mu$s for 445 nm excitation and $t$ = 26.54 $\mu$s for 637 nm excitation. These offsets result in a fitted $\tau$ = 16.993 $\mu$s (\ce{pO2} = 152 mmHg) and are used throughout this dissertation. A major disadvantage of this strategy is the waste of phosphorescent signal. In the normoxic cuvette, these offsets correspond to 96\% and 60\% of the peak phosphorescence intensity for 445 and 637 nm excitation, respectively. While the exact percentage scales with $\tau$, this can have detrimental effects on fitting performance for weak signals.
+
+% Figure - Offset Correction
+\begin{figure}
+    \includegraphics{figures/chapter_2/offsetcorrection.pdf}
+    \caption {
+        \label{fig:offsetcorrection}
+        \textbf{(A)} 445 and 637 nm excitation produce different phosphorescent decay curves in identical samples. \textbf{(B)} Introducing an offset into the exponential decay fitting process corrects the wavelength-dependent lifetime discrepancy.
+    }
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Limitations of the Calibration Curve}
+
+Performing measurements on the normoxic cuvette revealed a limitation of the Oxyphor PtG4 calibration curve (Figure \ref{fig:oxyphor_ptg4}B), which has a maximum \ce{pO2} of 160 mmHg. While this is well beyond normal physiological values, any measurements conducted in animal subjects receiving supplemental oxygen would require using the Stern-Volmer relationship to convert $\tau$ into \ce{pO2}. However, the calibration curve does not fit the Stern-Volmer relationship particularly well ($R^2$ = 0.9729) and results in a discontinuous transition between the two methods (Figure \ref{fig:sternvolmerfit}). Lifetime measurements shorter than 16.6 $\mu$s will abruptly drop from 160 to 134 mmHg. Because of this deviation from the expected kinetics, there is significant uncertainty in the true \ce{pO2} values beyond the range of the empirical data. Despite this limitation, the combination of the calibration curve and the fitted Stern-Volmer parameters are used throughout this dissertation. The calibration curve is used when 16.6 $\mu$s $\ge \tau$ $\ge$ 47 $\mu$s and the Stern-Volmer relationship is used when $\tau$ \textless{} 16.6 $\mu$s. When $\tau$ \textgreater{} 47 $\mu$s ($\tau_0$), \ce{pO2} is set to 0 mmHg.
+
+% Figure - Stern-Volmer Fit
+\begin{figure}
+    \includegraphics{figures/chapter_2/sternvolmerfit.pdf}
+    \caption {
+        \label{fig:sternvolmerfit}
+        Least-squares fitting of the Stern-Volmer relationship to the Oxyphor PtG4 calibration data and the resulting prediction for lifetimes down to 10 $\mu$s. For $\tau > \tau_0$, \ce{pO2} is set to 0 mmHg.
     }
 \end{figure}
 
