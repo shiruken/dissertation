@@ -250,9 +250,44 @@ Performing measurements on the normoxic cuvette revealed a limitation of the Oxy
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Section 2.3 - Demonstration of Acute In Vivo Imaging
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Demonstration of Acute In Vivo Imaging}
+\section{Demonstration of Acute \textit{In Vivo} Imaging}
 
-\blindtext
+The system was tested \textit{in vivo} using mice (CD-1, male, 25-30 g, Charles River) with permanent cranial window implants (Appendix \ref{app:cranial_window}) that afford optical access to the surface of the brain. The window was positioned over the frontoparietal cortex approximately 2 mm rostral from the bregma cranial suture and 0.5 mm lateral from midline. Animals with clear and healthy cranial windows were selected for use after at least two weeks of recovery post-surgery. The subject was anesthetized with medical air vaporized isoflurane (1.5\%) via nose-cone inhalation and placed supine in a head-fixed stereotaxic frame (Narishige Scientific Instrument Lab). Oxygen gas was intentionally avoided to prevent hyperoxia from interfering with the \ce{pO2} measurements. Vitals including oxygen saturation, heart rate, and breath rate were monitored via pulse oximetry (MouseOx, Starr Life Sciences) and temperature was regulated with a feedback heating pad (DC Temperature Controller, FHC). Oxyphor PtG4 was administered via retro-orbital injection into the venous sinus for a target blood plasma concentration of 5 $\mu$M. The subject was then placed under the dual-modality system for imaging.
+
+Figure \ref{fig:staticspeckle} depicts an averaged ($n$ = 45) speckle contrast image and its corresponding ICT image highlighting the vasculature of the cortex. Speckle contrast images in this document are displayed using a grayscale colormap while $\tau_c$, ICT, and relative imagery are displayed using a perceptually-balanced colormap \cite{Niccoli:vx}. Compared to the speckle contrast image, the ICT image more clearly depicts the flow profiles within the larger vessels.
+
+% Figure - Static Speckle and ICT
+\begin{figure}
+    \includegraphics{figures/chapter_2/staticspeckle.pdf}
+    \caption {
+        \label{fig:staticspeckle}
+        \textbf{(A)} Speckle contrast and \textbf{(B)} ICT images for the mouse cortex (Scale bars = 1mm).
+    }
+\end{figure}
+
+Static oxygen tension measurements were acquired from two arterioles, two veins, and one parenchyma region using both the 445 and 637 nm excitation lasers (Figure \ref{fig:staticpO2}A). Patterns were displayed at 1 Hz for a total of 5 seconds with 2500 phosphorescent decays averaged per ROI. The measured \ce{pO2} within each region aligns well with physiological expectations as both arterioles have higher \ce{pO2} than the venous or parenchyma areas (Figure \ref{fig:staticpO2}B). The effects of wavelength can be seen as 445 nm excitation resulted in a broader range of \ce{pO2} values (48-83 mmHg) compared to 637 nm excitation (75-82 mmHg). Despite differences in absolute value, the trend of arterioles having greater \ce{pO2} than parenchyma, which in turn has greater \ce{pO2} than veins, exists for both excitation wavelengths. Since lifetime does not depend upon excitation wavelength (Figure \ref{fig:cuvette}B), these differences arise because of increased penetration depth at the longer wavelength.
+
+In order to obtain a more comprehensive look at vascular oxygenation within the camera FOV, an array of 12x8 rectangular tiles was sequentially projected using the DMD. The tiles were displayed at 10 Hz with 250 decays averaged per pattern for a total acquisition time of 9.6 seconds. The resulting \ce{pO2} maps (Figure \ref{fig:staticpO2}C-D) coarsely follow the visible surface vasculature. As expected, the large branching vein has lower \ce{pO2} values compared to the arteriole approaching from the bottom or the surrounding parenchyma. 445 nm excitation again resulted in a wider range of \ce{pO2} values (45-85 mmHg) compared to 637 nm excitation (81-85 mmHg).
+
+% Figure - Static pO2
+\begin{figure}
+    \includegraphics{figures/chapter_2/staticpO2.pdf}
+    \caption {
+        \label{fig:staticpO2}
+        \textbf{(A)} Speckle contrast image of cortical flow overlaid with regions targeted for \ce{pO2} measurements. Two descending arterioles (A1, A2), two veins (V1, V2), and one parenchyma region (P1) were examined. The projected patterns ranged between 0.014 - 0.046 mm$^2$ in area. \textbf{(B)} \ce{pO2} measurements within the targeted regions conducted using both 445 and 637 nm excitation of Oxyphor PtG4 (mean $\pm$ s.d.). \textbf{(C)} 445 nm and (d) 637 nm \ce{pO2} maps produced using tiled excitation patterns covering a 1.2 x 1.0 mm area. Each individual tile has a projected area of 0.012 mm$^2$ (Scale bars = 1mm).
+    }
+\end{figure}
+
+The ability to detect changes in neurovascular oxygen tension was tested using an hyperoxic challenge as shown in Figure \ref{fig:hyperoxicchallenge}. Three regions covering an arteriole, venule, and parenchyma were targeted for selective 445 nm illumination (Figure \ref{fig:hyperoxicchallenge}A) as the oxygen fraction was temporarily increased. Measurements were taken during each stage of the challenge and detected a large increase in \ce{pO2} during the hyperoxic state across all three regions (Figure \ref{fig:hyperoxicchallenge}B) with the arteriole experiencing the largest net increase. The \ce{pO2} remained slightly elevated above baseline values several minutes later during the post-hyperoxia recovery stage.
+
+% Figure - Hyperoxic Challenge
+\begin{figure}
+    \includegraphics{figures/chapter_2/hyperoxicchallenge.pdf}
+    \caption {
+        \label{fig:hyperoxicchallenge}
+        \textbf{(A)} Speckle contrast image depicting three regions (arteriole, venule, and parenchyma) targeted for 445 nm \ce{pO2} measurements during an hyperoxic challenge. \textbf{(B)} Static \ce{pO2} during baseline, hyperoxic, and recovery stages for each of the targeted vessels (mean $\pm$ s.d.). (Scale bar = 1mm).
+    }
+\end{figure}
 
 
 
