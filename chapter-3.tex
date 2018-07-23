@@ -4,7 +4,14 @@
 
 \chapter{Spatially-Targeted Photothrombotic Stroke}
 
-\blindtext
+Animal models of ischemic stroke are extensively used to study the mechanisms of neuronal death and recovery and to perform preliminary testing on neuroprotective interventions. While there are numerous techniques for inducing focal ischemia, the majority rely upon occlusion of the middle cerebral artery (MCA) and its branches. The MCA is the largest cerebral artery in the brain and the most common vessel involved with human ischemic events \cite{Sicard:2009ku}. The models that can most reliably reproduce the lesions and pathophysiology of human stroke (e.g. ischemic core and penumbra) offer the best experimental platforms for preclinical research.
+
+Intraluminal MCA occlusion (MCAo) is the most widely used technique and is performed by introducing a monofilament suture into the internal carotid artery to block blood flow to the MCA \cite{Kozuimi:1986bd}. This model is capable of inducing both permanent and transient focal ischemia similar to that of human stroke and does not require craniotomy. The procedure results in large-scale infarct volumes (21-45\% of ipsilateral hemisphere) that most closely resemble malignant infarction in humans \cite{Carmichael:2005gk}. However, the majority of human strokes are much smaller in size (4.5-14\%) \cite{Carmichael:2005gk, Brott:1989bl}, making traditional MCAo a poor model for studying recovery at a similar scale. Distal MCAo produces smaller infarcts limited to the cerebral hemisphere but requires performing a craniotomy to physically access the target vessel \cite{Doyle:2014bz}. Embolic MCAo relies upon the introduction of microspheres or the induction of thrombotic clots to occlude downstream vasculature. Particle size dictates the extent and localization of the infarction, which are more variable than traditional or distal MCAo \cite{Carmichael:2005gk}. Vasoconstrictors such as Endothelin-1 (ET-1) can be injected intracerebrally in the proximity of the MCA to induce transient ischemia with a dose-dependent recovery of blood flow \cite{Sicard:2009ku}. Surgical electrocauterization or direct clipping of the MCA can also be performed to induce permanent or reversible ischemia but require craniotomy.
+
+The photothrombosis model uses intravascular photooxidation to generate well-defined cortical lesions \cite{Watson:1985bp}. Photosensitive dyes such as rose bengal are injected intravenously and irradiated with light to produce singlet oxygen, which causes localized endothelial damage initiating platelet aggregation and thrombus formation \cite{Dietrich:1987wh}. Rose bengal has been extensively utilized as a photothrombotic agent \cite{Grome:1988bx, Parthasarathy:2010vo} and has well-characterized pharmacokinetics with fast clearance from the body \cite{Klaassen:1976kg}. A significant advantage of the photothrombotic model is the ability to stereotactically control the position and size of the infarct to target specific functional regions. However, the technique results in rapid vasogenic edema, which is thought to restrict the development of the ischemic penumbra and local reperfusion \cite{Carmichael:2005gk}.
+
+The DMD in the imaging system offers a new method for targeting photothrombosis that allows for increased control over the stroke induction process compared to conventional techniques that only illuminate a single focal volume. Entire vessels, arbitrarily-shaped regions, or even multiple locations can be simultaneously occluded by using the DMD to pattern the irradiating light. By specifically targeting vessels, collateral photooxidative damage to the surrounding tissue can be minimized. This chapter details modifications made to the imaging system to perform DMD-targeted photothrombosis and an \textit{in vivo} demonstration of the technique in mice.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -12,7 +19,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Instrumentation Modifications}
 
-The system was modified (Figure \ref{fig:systemschematic_2}) to perform photothrombotic stroke with the addition of a 532 nm laser (200 mW, AixiZ). The packaged diode laser has a 2 mm collimated output that operates at a fixed current with convection cooling. A neutral density filter (OD 1.0, NE10A-A, Thorlabs, Inc.) was used to attenuate the laser intensity by an order of magnitude. A longpass dichroic beamsplitter (490 nm cutoff, DMLP490, Thorlabs, Inc.) was used to coalign the 532 nm laser with the other two lasers for coupling into the fiber optic patch cord. The green light can then be patterned by the DMD for targeted photothrombosis. \ce{pO2} measurements can be acquired simultaneously during photothrombosis induction because of the system's spectral separation, but are limited to only the targeted region.
+The system was modified (Figure \ref{fig:systemschematic_2}) to perform photothrombotic stroke with the addition of a 532 nm laser (200 mW, AixiZ). The packaged diode laser has a 2 mm collimated output that operates at a fixed current with convection cooling. A neutral density filter (OD 1.0, NE10A-A, Thorlabs, Inc.) was used to attenuate the laser intensity by an order of magnitude down to 20 mW. A longpass dichroic beamsplitter (490 nm cutoff, DMLP490, Thorlabs, Inc.) was used to coalign the 532 nm laser with the other two lasers for coupling into the fiber optic patch cord. The green light can then be patterned by the DMD for targeted photothrombosis. \ce{pO2} measurements can be acquired simultaneously during photothrombosis induction because of the system's spectral separation, but are limited to only the stroke target region.
 
 % Figure - System Schematic (Ver. 2)
 \begin{figure}
@@ -30,26 +37,35 @@ The system was modified (Figure \ref{fig:systemschematic_2}) to perform photothr
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Targeted Photothrombosis Induction}
 
-Targeted photothrombosis was demonstrated \textit{in vivo} using anesthetized (1.5\% isoflurane in medical air) mice with permanent cranial window implants. Rose bengal was administered intravenously via retro-orbital injection (50 $\mu$L, 15 mg/mL) and the subject was immediately exposed to DMD-patterned green light for 5-10 minutes. Descending arterioles were the primary targets because they serve as bottlenecks in the cortical oxygen supply \cite{Nishimura:2007hk}. Target vessels were identified based on vascular orientation and \textit{a posteriori} knowledge. \ce{pO2} measurements were limited when performing photothrombosis to only the region being targeted for occlusion and were acquired continuously with 2500 decays being averaged per record. LSCI was used to monitor clot formation within the targeted area and control the progression of the occlusion.
+Targeted photothrombosis was demonstrated \textit{in vivo} using anesthetized (1.5\% isoflurane in medical air) mice with permanent cranial window implants. Rose bengal was administered intravenously via retro-orbital injection (50 $\mu$L, 15 mg/mL) and the subject was immediately exposed to DMD-patterned green light for 5-10 minutes. Descending arterioles were the primary targets because they serve as bottlenecks in the cortical oxygen supply \cite{Nishimura:2007hk}. Target vessels were identified based on vascular orientation and \textit{a posteriori} knowledge. \ce{pO2} measurements were limited when performing photothrombosis to only the region being targeted for occlusion and were acquired continuously at 1 Hz with 2500 decays being averaged per record. LSCI was used to monitor clot formation within the targeted area and to control the progression of the occlusion.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Photothrombosis Hemodynamics}
+\subsection{Acute Hemodynamics}
 
 \blindtext
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Section 3.3 - Targeted Photothrombosis Induction
+% Section 3.3 - Chronic Post-Stroke Hemodynamics
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Targeted Photothrombosis Induction}
+\section{Chronic Post-Stroke Hemodynamics}
 
 \blindtext
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Section 3.4 - Discussion
+% Section 3.4 - Functional Effects of Targeted Stroke
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Functional Effects of Targeted Stroke}
+
+\blindtext
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Section 3.5 - Discussion
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
 
