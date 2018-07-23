@@ -1,14 +1,42 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Dissertation Style for The University of Texas at Austin (August 2018)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   Originally created by Young U. Ryu
-%   Updated by Miguel A. Lerma and Craig McCluskey
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                utdiss2.sty-05.sty (August 2002)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Doctoral Dissertation Format Macros for The Univ. of Texas at Austin
+%     By Young U. Ryu
+% and some fixes by Miguel A. Lerma (malerma@math.utexas.edu)
+% and some more fixes by Craig McCluskey (mccluskey@mail.utexas.edu).
 %
-%   How to Use:
-%       \documentclass[12pt]{report}
-%       \usepackage{utdiss}
+% This file was first modified in October, 2001 by Craig W. McCluskey
+% to meet the Graduate School requirements of March, 2001. The name of
+% the file was changed to utdiss2.sty to distinguish it from the
+% original utdiss.sty of June 1991 and Miguel A. Lerma's utdiss1.sty.
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% How to Use -
+%
+% \documentclass[12pt]{report}
+%
+% \usepackage{utdiss2}
+%
+%
+% Note: This style file does not guarantee the satisfaction
+%       of all requirements specified by the Graduate School
+%       of the University of Texas at Austin.
+%
+
+\typeout{*}
+\typeout{* U.T. Austin Doctoral Dissertation Format by Young. U. Ryu,}
+\typeout{* June 1991. With some fixes by Miguel A. Lerma, Fall 1995, }
+\typeout{* Spring 1996, Summer 1996, Spring 1997, Summer 1997, Spring 1998.}
+\typeout{*}
+\typeout{* Modified to new Graduate School standards Fall 2001}
+\typeout{* 	by Craig McCluskey	mccluskey@mail.utexas.edu }
+\typeout{* 		- this is utdiss2-05.sty}
+\typeout{*}
 
 %%%%%%%%%%%%%%%%%%%%%
 % Dimension Setting %
@@ -561,7 +589,8 @@
 \def\approvalwords{%		%	22 Jul 2001	cwm
          \leftline{\hbox to 2.5in{}Committee:\hfill}		%
                                            }			%
-    \def\pubnum{\centerline{Publication No. \rule{1.5in}{0.4pt}}}
+    %\def\pubnum{\centerline{Publication No. \rule{1.5in}{0.4pt}}} %% original line
+    \def\pubnum{} %% David Miller edited this line
 
 }	% End of definition of dissertation.
 
@@ -842,7 +871,7 @@
     \centerline{\large\bf by}
     \vspace{25pt}
 %    \centerline{\large\bf\AU@THOR, \previous@degrees}
-    \centerline{\large\bf\au@thor, \previous@degrees}
+    \centerline{\large\bf\au@thor \previous@degrees}
     \vfill
     \begin{center}
     {\bf\DOC@TYPE}\\
@@ -981,13 +1010,15 @@
 \def\vitahead{\chapter*{Vita}\thispagestyle{plain}
     \addcontentsline{toc}{chapter}{Vita} }
 \def\vitatail{ \par\vfill\par
-    \vfill\par\noindent
-    \renewcommand{\thefootnote}{\fnsymbol{footnote}}
-    This \doc@type{} was typeset
-    with \LaTeX\footnote[2]{\LaTeX{} is a document preparation
-    system developed by Leslie Lamport as a special
-    version of Donald Knuth's \TeX{} Program.}
-    by \type@ist. }
+    %\noindent Permanent address: \parbox[t]{3.5in}{\raggedright\add@ress}
+%%    \vfill\par\noindent
+%%    \renewcommand{\thefootnote}{\fnsymbol{footnote}}
+%%    This \doc@type{} was typeset
+%%    with \LaTeX\footnote[2]{\LaTeX{} is a document preparation
+%%    system developed by Leslie Lamport as a special
+%%    version of Donald Knuth's \TeX{} Program.}
+%%    by \type@ist.
+     }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Default is double spacing. %
