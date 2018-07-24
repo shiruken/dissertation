@@ -37,7 +37,31 @@ The system was modified (Figure \ref{fig:systemschematic_2}) to perform photothr
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Targeted Photothrombosis Induction}
 
-Targeted photothrombosis was demonstrated \textit{in vivo} using anesthetized (1.5\% isoflurane in medical air) mice with permanent cranial window implants. Rose bengal was administered intravenously via retro-orbital injection (50 $\mu$L, 15 mg/mL) and the subject was immediately exposed to DMD-patterned green light for 5-10 minutes. Descending arterioles were the primary targets because they serve as bottlenecks in the cortical oxygen supply \cite{Nishimura:2007hk}. Target vessels were identified based on vascular orientation and \textit{a posteriori} knowledge. \ce{pO2} measurements were limited when performing photothrombosis to only the region being targeted for occlusion and were acquired continuously at 1 Hz with 2500 decays being averaged per record. LSCI was used to monitor clot formation within the targeted area and to control the progression of the occlusion.
+Targeted photothrombosis was demonstrated \textit{in vivo} using anesthetized (1.5\% isoflurane in medical air) mice with permanent cranial window implants. Rose bengal was administered intravenously via retro-orbital injection (50 $\mu$L, 15 mg/mL) and the subject was immediately exposed to DMD-patterned green light for 5-10 minutes. Descending arterioles were the primary targets because they serve as bottlenecks in the cortical oxygen supply \cite{Nishimura:2007hk}. Target vessels were identified based on vascular orientation and \textit{a posteriori} knowledge. Because Oxyphor PtG4 has minimal absorbance of green light, \ce{pO2} measurements can be simultaneously acquired while performing photothrombosis. However, the measurements are limited to only the region being targeted for occlusion. LSCI was used to monitor clot formation within the targeted area and to control the progression of the occlusion. The speckle contrast inverse correlation times (ICT = $1/\tau_c$) were baselined against pre-stroke values to provide an estimate of the relative change in blood flow (rICT = $\tau_{c,initial}/\tau_c$).
+
+Figure \ref{fig:photothrombosisacute} depicts the targeted photothrombotic occlusion of a descending arteriole that is likely a distal branch of the MCA. The red overlay in Figure \ref{fig:photothrombosisacute}A highlights the 0.09 mm$^2$ region irradiated with spatially-patterned green light for 420 seconds. \ce{pO2} measurements were continuously acquired from the same region at 1 Hz with 2500 decays averaged per record. The series of speckle contrast images depict the progression of the photothrombotic occlusion as the targeted vessel rapidly underwent stenosis and flow was significantly reduced. After only two minutes of exposure, the targeted vessel was indistinguishable from the surrounding parenchyma.
+
+% Figure - Acute Photothrombosis
+\begin{figure}
+    \includegraphics{figures/chapter_3/photothrombosisacute.pdf}
+    \caption{
+        \label{fig:photothrombosisacute}
+        \textbf{(A)} Speckle contrast images depicting the occlusion of a descending arteriole using DMD-targeted photothrombosis. The red overlay indicates the 0.09 mm$^2$ region simultaneously illuminated for occlusion and \ce{pO2} measurements. \textbf{(B)} Two arterioles (A1, A2), one vein (V1), and two parenchyma regions (P1, P2) were targeted for \ce{pO2} measurements after stroke induction. \textbf{(C)} Relative blood flow and \ce{pO2} within the targeted regions during and after photothrombosis. The green-shaded section indicates irradiation of the targeted arteriole. The arrow indicates the propagation of an ischemia-induced depolarization event. (Scale bars = 1 mm).
+    }
+\end{figure}
+
+% Figure - PID Propagation
+\begin{figure}
+    \includegraphics{figures/chapter_3/pidsequence.pdf}
+    \caption{
+        \label{fig:pidsequence}
+        Relative flow during an ischemia-induced depolarization event that results in the expansion of the flow deficit. The depolarization has minimal effect upon the large draining vein. (Scale bar = 1 mm).
+    }
+\end{figure}
+
+Figure \ref{fig:photothrombosisacute}B depicts the five regions (two arterioles, one vein, two parenchyma) targeted for dynamic relative blood flow and \ce{pO2} measurements. The first arteriole region (A1) is the same vessel targeted for photothrombotic occlusion. The resulting timecourses of relative blood flow and \ce{pO2} within each region can be seen in Figure \ref{fig:photothrombosisacute}C. By $t$ = 120 seconds, flow within the targeted arteriole had decreased to \textless50\% of baseline and \ce{pO2} had dropped from 80 mmHg to only 20 mmHg. Over the following several minutes, flow also decreased in the nearby parenchyma and venous regions (P1 and V1) and increased slightly in the distal second arteriole region (A2). The propagation of an ischemia-induced depolarization event \cite{Shin:2006dc, Dreier:2011gz} can be seen beginning at $t$ = 300 seconds, with sharp reductions in both relative blood flow and \ce{pO2}. As the depolarization subsided, flow within the targeted arteriole further decreased to \textless35\% of baseline flow while the \ce{pO2} returned to pre-depolarization levels around 20 mmHg. Flow in all other regions remained depressed immediately following the depolarization. Figure \ref{fig:pidsequence} overlays relative ICT on speckle contrast imagery to depict the spatial extent of the depolarization and the resulting increase in deficit area. This global reduction in flow following a spreading depolarization is consistent with previous studies using other stroke models \cite{Shin:2006dc, Nakamura:2010wp}.
+
+Photothrombosis irradiation was stopped at $t$ = 420 seconds and \ce{pO2} measurements from all five ROIs were initiated. Patterns were displayed at 2 Hz with 1250 decays averaged per record. Flow and \ce{pO2} decreased over the remaining 20 minutes of the imaging session across all regions except for A1. At $t$ = 860 seconds, the targeted vessel partially reperfused, causing an abrupt increase in both relative blood flow (+6 percentage points) and \ce{pO2} (+15 mmHg). By the end of the imaging session, flow had increased within A1 to 55\% of baseline and \ce{pO2} to 42 mmHg, likely indicating further reperfusion of the vessel.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Acute Hemodynamics}
