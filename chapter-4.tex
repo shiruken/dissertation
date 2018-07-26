@@ -4,7 +4,28 @@
 
 \chapter{Improving Cerebral Blood Flow Measurements with Multi-Exposure Speckle Imaging} \label{ch:mesi}
 
-\blindtext
+While the conventional LSCI technique can provide reliable measurements of relative flow, it is incapable of quantifying baseline values. This complicates the chronic study and inter-animal comparisons of blood flow dynamics because variations in imaging conditions cannot be properly accounted for by the underlying model. This has not prevented LSCI from being used to study chronic changes in flow (see Section \ref{sec:chronic_hemodynamics}), but has limited the observations to predominantly qualitative interpretations \cite{Armitage:2010ga}. The technique has also been shown to underestimate large changes in flow and fails to produce reliable measurements in the presence of static scatters \cite{Parthasarathy:2008el}.
+
+Multi-exposure speckle imaging (MESI) is an extension to traditional LSCI theory that accounts for static scattering and produces a more robust estimate of $\tau_c$ using multiple camera exposure times \cite{Parthasarathy:2008el}. These improvements are achieved by accounting for the heterodyne mixing of dynamic and static scattering contributions, the non-ergodicity of light, and exposure-independent noise. The model described by Parthasarathy \textit{et al.} \cite{Parthasarathy:2008el} again relates the measured $K$ with $\tau_c$:
+
+% Equation - MESI Equation
+\begin{equation}
+    \label{eq:mesi}
+    \resizebox{\textwidth}{!}{$
+    K(T,\tau_c) =
+        \left(
+        \beta\rho^2\frac{e^{-2x} - 1 + 2x}{2x^2} +
+        4\beta\rho(1 - \rho)\frac{e^{-x} - 1 + x}{x^2} +
+        \beta(1 - \rho)^2 +
+        \nu_{ne} +
+        \nu_{noise}
+        \right)^{1/2}
+    $}
+\end{equation}
+
+\noindent where $x = T/\tau_c$, $T$ is the camera exposure time, $\beta$ is the same normalization factor that accounts for speckle averaging effects, $\rho$ is the fraction of light that is dynamically scattered, $\nu_{ne}$ is the constant variance due to nonergodic light, and $\nu_{noise}$ is the exposure-independent instrument noise. For simplicity, $\nu_{ne}$ and $\nu_{noise}$ are typically merged into a single noise parameter ($\nu_{noise}$). Similar to Equation \ref{eq:bandyopadhyay}, this expression assumes that detected photons only experience single scattering interactions and that the underlying particle motion has a Lorentzian velocity distribution. A scaling term representing the number of average dynamic scattering events can be included with $x$ to account for multiple scattering interactions \cite{Kazmi:2015du}. In the absence of static scatterers, $\rho \to 1$ and Equation \ref{eq:mesi} simplifies to Equation \ref{eq:bandyopadhyay}, excluding the noise terms. In the presence of only static scatterers, then $\rho \to 0$ and $K$ reduces to a constant $\beta(1 - \rho)^2 + \nu_{noise}$ and is independent of exposure time. This represents the upper limit of the speckle variance ($K^2$) as $T$ approaches infinity. The lower limit as $T$ approaches 0 is $\beta + \nu_{noise}$, which can be approximated with just $\beta$ because the noise will only constitute a small percentage of the total value.
+
+A minimum of four speckle contrast images acquired at different exposure times are necessary to fit Equation \ref{eq:mesi} for the four unknown variables ($\beta$, $\rho$, $\tau_c$, $\nu_noise$). In practice, 15 images spanning three decades of exposure times (50 $\mu$s - 80 ms) are typically utilized to sample as much of the underlying flow distribution as possible. The MESI model has improved the quantitative accuracy of flow measurements in controlled microfluidic environments \cite{Parthasarathy:2008el, Kazmi:2015du} and closely approximates the results of direct autocorrelation measurements \cite{Kazmi:2015ji}. The technique has enabled the chronic study of CBF across multiple animals and improved the robustness of flow deficit measurements during stroke studies \cite{Parthasarathy:2010vo, Kazmi:2013hp, Schrandt:2015gu}. This chapter details an upgrade to the imaging system to perform MESI and further validation of its capabilities.
 
 
 
