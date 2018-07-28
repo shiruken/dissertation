@@ -5,7 +5,78 @@
 \chapter{Jacobian Matrix of the MESI Equation} \label{app:mesi_jacobian}
 
 The Jacobian matrix ($\bm{J}$) is the matrix of all first-order partial derivatives of a vector-valued function ($\bm{f}$):
-
+%
 \begin{equation}
     \bm{J} = \left[\frac{\partial \bm{f}}{\partial x_1} \ldots \frac{\partial \bm{f}}{\partial x_n}\right]
+    = \begin{bmatrix}
+    \frac{\partial f_1}{\partial x_1} & \dots & \frac{\partial f_1}{\partial x_n} \\
+    \vdots & \ddots & \vdots \\
+    \frac{\partial f_m}{\partial x_1} & \dots & \frac{\partial f_m}{\partial x_n}
+    \end{bmatrix}
 \end{equation}
+%
+and can be expressed component-wise as:
+%
+\begin{equation}
+    \bm{J_{ij}} = \frac{\partial f_i}{\partial x_j}
+\end{equation}
+%
+The partial derivatives comprising the Jacobian matrix of the MESI equation (Equation \ref{eq:mesi}) for use in the Levenberg-Marquardt optimization algorithm are as follows:
+
+% % dK/dB
+% \begin{equation}
+%     \frac{\partial K^2}{\partial \beta}
+%     = \rho^2\tau_c^2\left(\frac{e^{-2T/\tau_c} + 2T/\tau_c - 1}{2T^2}\right)
+%     + 4\rho\tau_c^2(1 - \rho)\left(\frac{e^{-T/\tau_c} + T/\tau_c - 1}{T^2}\right)
+%     + (1 - \rho)^2
+% \end{equation}
+
+\begin{align*}
+    \label{eq:mesi_jacobian}
+    \frac{\partial K^2}{\partial \beta}
+    &= \rho^2\tau_c^2\left(\frac{e^{-2T/\tau_c} + 2T/\tau_c - 1}{2T^2}\right)
+    + 4\rho\tau_c^2(1 - \rho)\left(\frac{e^{-T/\tau_c} + T/\tau_c - 1}{T^2}\right) \\
+    &+ (1 - \rho)^2
+    \\
+    \\
+    \\
+    \frac{\partial K^2}{\partial \rho}
+    &= \beta\rho\tau_c^2\left(\frac{e^{-2T/\tau_c} + 2T/\tau_c - 1}{T^2}\right)
+    + 4\beta\tau_c^2(1 - \rho)\left(\frac{e^{-T/\tau_c} + T/\tau_c - 1}{T^2}\right) \\
+    &- 4\beta\rho\tau_c^2\left(\frac{e^{-T/\tau_c} + T/\tau_c - 1}{T^2}\right)
+    - 2\beta(1 - \rho)
+    \\
+    \\
+    \\
+    \frac{\partial K^2}{\partial \tau_c}
+    &= \beta\rho^2\left(\frac{e^{-2T/\tau_c} - 1}{T}\right)
+    + \beta\rho^2\tau_c\left(\frac{e^{-2T/\tau_c} + 2T/\tau_c - 1}{T^2}\right) \\
+    &+ 4\beta\rho(1 - \rho)\left(\frac{e^{-T/\tau_c} - 1}{T}\right)
+    + 8\beta\rho\tau_c(1 - \rho)\left(\frac{e^{-T/\tau_c} + T/\tau_c - 1}{T^2}\right)
+    \\
+    \\
+    \\
+    \frac{\partial K^2}{\partial \nu} &= 1
+\end{align*}
+
+% % dK/dt
+% \begin{equation}
+% \begin{split}
+%     \frac{\partial K^2}{\partial \tau_c} =
+%     & \beta\rho^2\left(\frac{e^{-2T/\tau_c} - 1}{T}\right) +
+%     \beta\rho^2\tau_c\left(\frac{e^{-2T/\tau_c} + 2T/\tau_c - 1}{T^2}\right) \\ +
+%     & 4\beta\rho(1 - \rho)\left(\frac{e^{-T/\tau_c} - 1}{T}\right) +
+%     8\beta\rho\tau_c(1 - \rho)\left(\frac{e^{-T/\tau_c} + T/\tau_c - 1}{T^2}\right)
+% \end{split}
+% \end{equation}
+%
+% % dK/dn
+% \begin{equation}
+%     \frac{\partial K^2}{\partial \nu} = 1
+% \end{equation}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END Appendix D
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
