@@ -79,8 +79,6 @@ The AOM modulation voltages for each exposure are determined using the calibrati
 
 The initial guess for the modulation voltages is generated using a power law function confined between 0-1 V. These voltages are used to acquire a complete MESI frame containing 15 raw intensity images from different exposures. The average intensity and total number of saturated pixels within a user-defined region is then calculated for each image. If the overall coefficient of variation and the number of saturated pixels are less than the defined thresholds, then the intensities are equalized and the calibration is complete. However, if the average intensity variation is too high or if there are too many saturated pixels, then each of the modulation voltages are adjusted accordingly using the shortest exposure time as the target intensity. This process repeats recursively until the stop conditions are achieved.
 
-Figure \ref{fig:rawmesi} contains an example of the final iteration of a MESI calibration for an \textit{in vivo} imaging experiment. The intensity-equalized raw images for each of the 15 exposures can be seen in Figure \ref{fig:rawmesi}A. The speckle pattern becomes increasingly blurred, especially within vascular regions, as the camera integration time increases. The average intensity from the center quadrant of each exposure is shown in Figure \ref{fig:rawmesi}B, with a final coefficient of variation \textless1\%. Figure \ref{fig:rawmesi}C depicts the resulting calibrated AOM modulation voltages for use with each exposure time during the actual imaging experiment. The voltages span two orders of magnitude (0.3 V - 3 mV) and cover the entire modulation range of the AOM.
-
 % Figure - MESI Raw
 \begin{figure}
     \includegraphics{figures/chapter_4/rawmesi.pdf}
@@ -90,6 +88,8 @@ Figure \ref{fig:rawmesi} contains an example of the final iteration of a MESI ca
     }
 \end{figure}
 
+Figure \ref{fig:rawmesi} contains an example of the final iteration of a MESI calibration for an \textit{in vivo} imaging experiment. The intensity-equalized raw images for each of the 15 exposures can be seen in Figure \ref{fig:rawmesi}A. The speckle pattern becomes increasingly blurred, especially within vascular regions, as the camera integration time increases. The average intensity from the center quadrant of each exposure is shown in Figure \ref{fig:rawmesi}B, with a final coefficient of variation \textless1\%. Figure \ref{fig:rawmesi}C depicts the resulting calibrated AOM modulation voltages for use with each exposure time during the actual imaging experiment. The voltages span two orders of magnitude (0.3 V - 3 mV) and cover the entire modulation range of the AOM.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -97,7 +97,41 @@ Figure \ref{fig:rawmesi} contains an example of the final iteration of a MESI ca
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Improving MESI Processing Speed}
 
-\blindtext
+The generation of a single MESI ICT frame is a computationally-intensive task that requires fitting Equation \ref{eq:mesi} at every single pixel of the input speckle contrast images. This has prohibited any real-time visualization using the technique and limited most studies to ROI analysis rather than full-field imagery. The original processing script developed by Parthasarthy \cite{Parthasarthy:2010uf} and improved upon by Kazmi \cite{Kazmi:2014vi} relied upon the nonlinear regression functions of MATLAB’s Optimization Toolbox. The \texttt{fit()} function was used to solve for the four variables ($\beta$, $\rho$, $\tau_c$, $\nu_{noise}$) using the Trust-Region-Reflective least squares algorithm \cite{Yuan:1999tk}. This method was the only built-in algorithm that offered bound constraints on the individual components, which were necessary because all four variables are limited to values between $(0,1]$. Because the analytical Jacobian for the MESI Equation (Equation \ref{eq:mesi}) was not defined, the solver automatically approximated it using finite differences. While this processing script produced reliable results, it was extremely slow and took hours to compute a single MESI ICT image, making it impractical to generate more than a few frames.
+
+% Table - MESI Processing Speed
+\begin{table}
+    \caption[Comparison of MESI processing speeds]{
+        Comparison of processing speeds on a 1194 x 994 pixel MESI frame.
+    }
+    \label{tab:mesispeed}
+    \centering
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{ccccc} \addlinespace \toprule
+        \thead{Technique} & \thead{Analytical Jacobian} & \thead{Total Time (s)} & \thead{Per Fit (ms)} & \thead{Speedup} \\ \midrule
+        \textbf{Old Script} & No & 23,200 & 19.55 & - \\ \hline
+        \textbf{\makecell{MATLAB \\ \texttt{lsqnonlin()}}} & Yes & 5,046 & 4.25 & 4.6x \\ \hline
+        \textbf{\makecell{MATLAB \\ \texttt{levmar}}} & Yes & 820 & 0.69 & 28x \\ \hline
+        \textbf{MESI.c} & Yes & 28 & 0.024 & 815x \\ \hline
+    \end{tabular}}
+\end{table}
+
+In order to increase the processing speed, alternatives to the native MATLAB optimization functions were examined. The Levenberg-Marquardt nonlinear least squares algorithm has a popular ANSI C implementation (\texttt{levmar}) \cite{Lourakis:J2fCMU5i} that offers interfacing with MATLAB via a binary MEX file. Unlike the MATLAB implementations of the Levenberg-Marquardt algorithm, \texttt{levmar} allows for enforcing bound constraints on the fitted variables. An updated version of the MATLAB processing script was created by implementing the \texttt{levmar} library and including analytical definitions of the Jacobian functions (Appendix \ref{app:mesi_jacobian}). This reduced the computation time to only several minutes per MESI ICT frame, a marked improvement over the original technique.
+
+While MATLAB offers convenience as a scripting language for editing and debugging, its computation capabilities pale in comparison to compiled programs. In order to further increase the processing speed, a standalone program implementing the \texttt{levmar} package was created in C (i.e. "MESI.c"). Specifically, the \texttt{slevmar\_bc\_der()} function was utilized to perform the fitting process with single-precision floating-point numbers, box constraints, and an analytical definition of the Jacobian. The program directly reads speckle contrast data files from the Speckle Software and outputs the four fitted variables into a similarly structured file. This compiled program reduced computation time to only tens of seconds per MESI ICT frame. While insufficient for real-time processing on full-size images, downsampling data in the Speckle Software could allow for near real-time views of MESI ICT.
+
+An overview of the processing speeds for each of the previously mentioned fitting techniques is shown in Table \ref{tab:mesispeed}. Benchmarks were performed using MATLAB R2017a on a desktop computer with an overclocked (4.2 GHz) Intel Core i5-4690K processor and 32 GB of memory (1866 MHz DDR3). The MATLAB scripts were parallelized using the Parallel Computing Toolbox to create four local workers while the MESI.c program spawned four threads to perform the fitting in parallel. The boundary conditions, initial parameter guesses, and maximum number of iterations ($n$ = 1000) were consistent across all four tests. Implementing the \texttt{levmar} package in MATLAB and C offered significant improvements in processing speed compared to the native MATLAB fitting functions.
+
+Figure \ref{fig:mesifit} depicts the resulting fitting performance for the standalone program compared to the original processing script across vascular, parenchyma, and static regions. While there were minimal differences between the mean squared errors of each fit to the original data, the Levenberg-Marquardt algorithm more closely followed the vascular data at longer exposure times compared to the Trust-Region-Reflective algorithm. Regardless of the discrepancies, the enormous increase in computation speed afforded by the MESI.c program makes it the only viable option for large-scale MESI dataset processing.
+
+% Figure - MESI Fit
+\begin{figure}
+    \includegraphics{figures/chapter_4/mesifit.pdf}
+    \caption[Comparison of MESI parameter fitting performance for the old MATLAB processing script and the new compiled MESI.c program.]{
+        \label{fig:mesifit}
+        Comparison of MESI parameter fitting performance for the old MATLAB processing script and the new compiled MESI.c program. ROIs covering vasculature (pink), parenchyma (green), and static skull (red) were examined (MSE = Mean Squared Error).
+    }
+\end{figure}
 
 
 
