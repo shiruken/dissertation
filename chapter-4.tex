@@ -77,7 +77,7 @@ The AOM modulation voltages for each exposure are determined using the calibrati
     }
 \end{figure}
 
-The initial guess for the modulation voltages is generated using a power law function confined between 0-1 V. These voltages are used to acquire a complete MESI frame containing 15 raw intensity images from different exposures. The average intensity and total number of saturated pixels within a user-defined region is then calculated for each image. If the overall coefficient of variation and the number of saturated pixels are less than the defined thresholds, then the intensities are equalized and the calibration is complete. However, if the average intensity variation is too high or if there are too many saturated pixels, then each of the modulation voltages are adjusted accordingly using the shortest exposure time as the target intensity. This process repeats recursively until the stop conditions are achieved.
+The initial guess for the modulation voltages is generated using a power law function confined between 0-1 V. These voltages are used to acquire a complete MESI frame containing 15 raw intensity images from different exposures. The average intensity and total number of saturated pixels within a user-defined region is then calculated for each image. If the overall coefficient of variation and the number of saturated pixels are less than the defined thresholds, then the intensities are equalized and the calibration is complete. However, if the average intensity variation is too high or if there are too many saturated pixels, then each of the modulation voltages are adjusted accordingly using the shortest exposure time as the target intensity. This process repeats recursively until the stop conditions are achieved. A typical calibration will take between 30-50 iterations and complete within less than a minute.
 
 % Figure - MESI Raw
 \begin{figure}
@@ -95,7 +95,7 @@ Figure \ref{fig:rawmesi} contains an example of the final iteration of a MESI ca
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Section 4.2 - Improving MESI Processing Speed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Improving MESI Processing Speed}
+\section{Improving MESI Processing Speed} \label{sec:mesi_fit}
 
 The generation of a single MESI ICT frame is a computationally-intensive task that requires fitting Equation \ref{eq:mesi} at every single pixel of the input speckle contrast images. This has prohibited any real-time visualization using the technique and limited most studies to ROI analysis rather than full-field imagery. The original processing script developed by Parthasarthy \cite{Parthasarthy:2010uf} and improved upon by Kazmi \cite{Kazmi:2014vi} relied upon the nonlinear regression functions of MATLAB’s Optimization Toolbox. The \texttt{fit()} function was used to solve for the four variables ($\beta$, $\rho$, $\tau_c$, $\nu_{noise}$) using the Trust-Region-Reflective least squares algorithm \cite{Yuan:1999tk}. This method was the only built-in algorithm that offered bound constraints on the individual components, which were necessary because all four variables are limited to values between $(0,1]$. Because the analytical Jacobian for the MESI Equation (Equation \ref{eq:mesi}) was not defined, the solver automatically approximated it using finite differences. While this processing script produced reliable results, it was extremely slow and took hours to compute a single MESI ICT image, making it impractical to generate more than a few frames.
 
@@ -129,25 +129,36 @@ Figure \ref{fig:mesifit} depicts the resulting fitting performance for the stand
     \includegraphics{figures/chapter_4/mesifit.pdf}
     \caption[Comparison of MESI parameter fitting performance for the old MATLAB processing script and the new compiled MESI.c program.]{
         \label{fig:mesifit}
-        Comparison of MESI parameter fitting performance for the old MATLAB processing script and the new compiled MESI.c program. ROIs covering vasculature (pink), parenchyma (green), and static skull (red) were examined (MSE = Mean Squared Error).
+        Comparison of MESI parameter fitting performance for the old MATLAB processing script and the new compiled MESI.c program. ROIs covering vasculature (pink), parenchyma (green), and static skull (red) were examined. (MSE = Mean Squared Error).
     }
 \end{figure}
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Section 4.3 - Demonstration of In Vivo MESI
+% Section 4.3 - In Vivo Demonstration of MESI
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Demonstration of \textit{In Vivo} MESI}
+\section{\textit{In Vivo} Demonstration of MESI}
 
-\blindtext
+The upgraded system was tested \textit{in vivo} with anesthetized mice to demonstrate the MESI technique. Figure \ref{fig:mesidemo}A depicts the 15 speckle contrast images composing a single MESI frame, each acquired with different exposure times. The shorter exposures only reveal the flow of the large central vein while the longer exposures show increasing vascular detail. This highlights the sensitivity of an exposure time to only certain ranges of particle speeds and why multiple exposures covering a broad range of values are necessary to more robustly estimate $\tau_c$.
+
+Figure \ref{fig:mesidemo}B depicts the resulting MESI ICT image calculated from the set of speckle contrast images using the process described in Section \ref{sec:mesi_fit}. Because of the large range of $\tau_c$ values, ICT images are typically displayed using a logarithmic scale. This image represents the best estimate of $\tau_c$ currently possible using the LSCI technique. Figure \ref{fig:mesidemo}C plots the speckle variance ($K^2$) of the highlighted vascular and parenchyma regions and their corresponding fits to Equation \ref{eq:mesi}. As $\tau_c$ decreases with increased scattering particle speed, the speckle variance curve shifts towards the left. It is important to sample as much of this curve as possible in order to properly estimate the particle dynamics. The measurements within the vessel would likely benefit from the addition of shorter exposure times since only four exposures (50, 75, 100, 250 $\mu$s) capture the linear portion of the curve.
+
+% Figure - MESI In Vivo Demonstration
+\begin{figure}
+    \includegraphics{figures/chapter_4/mesidemo.pdf}
+    \caption{
+        \label{fig:mesidemo}
+        \textbf{(A)} Speckle contrast images from the mouse cortex for each of the 15 MESI exposures and \textbf{(B)} the resulting ICT image. \textbf{(C)} Fitted speckle variance ($K^2$) curves from the vascular (blue) and parenchyma (red) regions outlined in B. (Scale bars = 1 mm).
+    }
+\end{figure}
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Section 4.4 - Reproducibility and Stability of MESI
+% Section 4.4 - Sensitivity and Reproducibility of MESI
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Reproducibility and Stability of MESI}
+\section{Sensitivity and Reproducibility of MESI}
 
 \blindtext
 
