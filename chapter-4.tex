@@ -197,7 +197,29 @@ A suspension of 1 $\mu$m diameter polystyrene microspheres (5100A, Thermo Fisher
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Microfluidic Measurements with MESI}
 
-\blindtext
+MESI was used to continuously image the microfluidic channel over the duration of the 40-minute stepped flow profile with an acquisition rate of approximately 1.5 fps. The average speckle contrast was computed at each timepoint within the ROI highlighted in Figure \ref{fig:microfluidic}A. Because $\beta$ is theoretically a constant that only depends upon experimental conditions, it was estimated by performing an initial fit of the median of the data to Equation \ref{eq:mesi}. The full multi-exposure speckle contrast timecourse was then fit to the same equation while holding $\beta$ constant at the estimated value. A moving average filter ($n$ = 5) was applied to the resulting $\tau_c$ timecourse.
+
+In order to compare the fitted values of $\tau_c$ to the absolute measurements from the flow sensor, the relative values of both measurements were computed using the 10 mm/s flow step as the baseline (Figure \ref{fig:microfluidicrelativeflow}A). The MESI rICT measurements closely mirror the flow sensor measurements with increased deviation at the slower flow rates and greater fluctuations over the entire flow profile. The measured speckle variance ($K^2$) and resulting MESI fits for each integer flow rate can be seen in Figure \ref{fig:microfluidicrelativeflow}B. The relationship between increasing flow rates and $\tau_c$ can be seen as the curves shift towards the left. Because $\beta$ was held constant, all the curves are converging to the same value (0.1430) as the exposure time approaches zero. However, this can negatively impact the quality of the resulting fits, as seen with the 1 mm/s curve, which deviates from the measured speckle variance at the shorter exposure times.
+
+% Figure - Microfluidic Relative Flow
+\begin{figure}
+    \includegraphics{figures/chapter_4/microfluidicrelativeflow.pdf}
+    \caption{
+        \label{fig:microfluidicrelativeflow}
+        \textbf{(A)} Performance of MESI relative flow estimates compared to the flow sensor. Both measurements were normalized against the final 10 mm/s flow step. \textbf{(B)} Speckle variance curves and MESI fits from each flow step highlighting the relationship between flow rate and $\tau_c$.
+    }
+\end{figure}
+
+The same measurements were conducted across multiple trials to examine the reproducibility of the MESI estimates of ICT (Figure \ref{fig:microfluidicconsistency}A). Runs 1 and 2 produced almost identical plots while Runs 3 and 4 appear to deviate at flow rates \textgreater 5 mm/s. However, plotting the average ICT against the average flow sensor measurements during each step (Figure \ref{fig:microfluidicconsistency}B) reveals that the flow system overshot the requested values during Runs 3 and 4. Therefore the apparent deviations in ICT seen in Figure \ref{fig:microfluidicconsistency}A were actually caused by the flow rate being higher during those two runs. These results indicate that MESI can provide stable day-to-day estimates of $\tau_c$ across a broad range of flow rates, thereby allowing the parameter to serve as a reliable baseline value for chronic or multiple-animal studies. The strong linear relationship between ICT and absolute flow rate suggests that calibrated measurements could be possible under ideal conditions.
+
+% Figure - Microfluidic Consistency
+\begin{figure}
+    \includegraphics{figures/chapter_4/microfluidicconsistency.pdf}
+    \caption{
+        \label{fig:microfluidicconsistency}
+        \textbf{(A)} Consistency of MESI ICT measurements across multiple trials. \textbf{(B)} MESI underestimates ICT at higher flow rates resulting in a slight divergence from unity. Error bars (s.d.) are displayed but smaller than the data markers.
+    }
+\end{figure}
 
 
 
@@ -206,7 +228,11 @@ A suspension of 1 $\mu$m diameter polystyrene microspheres (5100A, Thermo Fisher
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
 
-\blindtext
+The MESI technique allows for more robust estimates of $\tau_c$ compared to traditional single-exposure LSCI \cite{Parthasarathy:2008el}. The improved mathematical model properly accounts for the presence of static scatterers in a sample and the multiple exposure times sample a broader range of flow rates. The implementation of MESI in the dual-modality imaging system facilitates more reliable measurements of flow deficits during targeted photothrombotic stroke \cite{Parthasarathy:2010vo} and improves the quantitative accuracy of chronic CBF measurements \cite{Kazmi:2013hp}. The upgraded system was demonstrated \textit{in vivo} by imaging the cortical vasculature of a mouse and examining the quality of the resulting MESI ICT imagery.
+
+The modifications made to the Speckle Software, optimization of the calibration procedure, and improvements in processing speed have simplified the use of the MESI technique. Because the MATLAB script controlling the camera exposure trigger signals and AOM modulation voltages currently utilizes the ANSI C NI-DAQmx library, integrating the entire MESI calibration and acquisition process into the Speckle Software should be relatively straightforward. The \textgreater800x improvement in processing speed achieved with the compiled fitting program facilitates the full-frame analysis of MESI data that was previously impractical because of computation time. While still insufficient for the real-time processing of full-resolution speckle imagery, downsampling by a factor of two could allow for near 1 fps views of MESI-estimated ICT in the Speckle Software.
+
+The microfluidic measurements conducted on the standalone MESI system further demonstrate the robustness of the technique for estimating $\tau_c$. The linear relationship between ICT and absolute flow rate highlights the broad range of flows that can be properly measured by MESI. The day-to-day stability of ICT estimates allow the metric to serve as a reliable baseline for chronic or multiple-animal studies. While the standalone system utilized an expensive wavelength-stabilized laser diode, any day-to-day fluctuations should be accounted for by the $\beta$ parameter in Equation \ref{eq:mesi} as long as the laser is not mode hopping. The optimization of the LSCI laser diode in the dual-modality system (Section \ref{ssec:laser_stability}) indicated stable speckle contrast measurements over time.
 
 
 
