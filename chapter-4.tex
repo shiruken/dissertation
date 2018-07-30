@@ -109,10 +109,10 @@ The generation of a single MESI ICT frame is a computationally-intensive task th
     \resizebox{\textwidth}{!}{
     \begin{tabular}{ccccc} \addlinespace \toprule
         \thead{Technique} & \thead{Analytical Jacobian} & \thead{Total Time (s)} & \thead{Per Fit (ms)} & \thead{Speedup} \\ \midrule
-        \textbf{Old Script} & No & 23,200 & 19.55 & - \\ \hline
-        \textbf{\makecell{MATLAB \\ \texttt{lsqnonlin()}}} & Yes & 5,046 & 4.25 & 4.6x \\ \hline
-        \textbf{\makecell{MATLAB \\ \texttt{levmar}}} & Yes & 820 & 0.69 & 28x \\ \hline
-        \textbf{MESI.c} & Yes & 28 & 0.024 & 815x \\ \hline
+        \makecell{MATLAB \\ Old Script} & No & 10,944 & 9.22 & - \\ \hline
+        \makecell{MATLAB \\ \texttt{lsqnonlin()}} & Yes & 2,240 & 1.89 & 4.9x \\ \hline
+        \makecell{MATLAB \\ \texttt{levmar}} & Yes & 262.4 & 0.22 & 42x \\ \hline
+        \makecell{Compiled \\ MESI.c} & Yes & 12.9 & 0.011 & 850x \\ \hline
     \end{tabular}}
 \end{table}
 
@@ -165,7 +165,7 @@ Microfluidic devices have been used extensively to characterize both LSCI and ME
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Standalone MESI Instrumentation}
 
-The microfluidic tests were performed on a standalone MESI system (Figure \ref{fig:standaloneschematic}) that features similar instrumentation to the previously described dual-modality imaging system. A 785 nm wavelength-stabilized laser diode (300 mW, LD785-SEV300, Thorlabs, Inc.) was mounted in a temperature-controlled housing (TCLDM9, Thorlabs, Inc.) and collimated using an aspheric lens (?, Thorlabs, Inc.). The operating current was set to 380 mA using a laser diode controller (LDC205C, Thorlabs, Inc.) and the diode temperature set to 25 $^\circ$C using a temperature controller (TED200C, Thorlabs, Inc.). The collimated laser light was passed through an optical isolator (?) to minimize back reflections that interfere with single frequency performance. Because the external volume holographic grating of the stabilized laser diode produces a dark spot in the far field, the laser was coupled into a X $\mu$ single mode fiber (?, Thorlabs, Inc.) to obtain a Gaussian beam. The fiber output was re-collimated and modulated using a 100 MHz AOM (3100-125 AOM + 1110AF-AIFO-1.0 RF Driver, Gooch \& Housego) with the first order diffraction isolated and relayed to obliquely illuminate the sample. A pair of camera lenses were used to image the scattered light (? , Nikon) with ?X magnification through a bandpass filter (?) to a CMOS camera (acA1920-155um, 1920 x 1200 pixels, Basler AG). Only a subset of the overall sensor array was used (? x ? pixels), resulting in a FOV of ? x ? mm. A multifunction I/O device (USB-6363, National Instruments Corp.) was used to produce the camera exposure trigger signals and AOM modulation voltages.
+The microfluidic tests were performed on a standalone MESI system (Figure \ref{fig:standaloneschematic}) that features similar instrumentation to the previously described dual-modality imaging system. A 785 nm wavelength-stabilized laser diode (300 mW, LD785-SEV300, Thorlabs, Inc.) was mounted in a temperature-controlled housing (TCLDM9, Thorlabs, Inc.) and collimated using an aspheric lens (C280TMD-B, Thorlabs, Inc.). The operating current was set to 380 mA using a laser diode controller (LDC205C, Thorlabs, Inc.) and the diode temperature set to 25 $^\circ$C using a temperature controller (TED200C, Thorlabs, Inc.). The collimated laser light was passed through a free space optical isolator (Electro-Optics Technology, Inc.) to minimize back reflections that interfere with single frequency performance. Because the external volume holographic grating of the stabilized laser diode produces a dark spot in the far field, the laser was coupled into a single mode patch cable (125 $\mu$m cladding, P3-780A-FC-2, Thorlabs, Inc.) to obtain a Gaussian beam. The fiber output was re-collimated (F230APC-780, Thorlabs, Inc.) and modulated using a 100 MHz AOM (3100-125 AOM + 1110AF-AIFO-1.0 RF Driver, Gooch \& Housego) with the first order diffraction isolated and relayed to obliquely illuminate the sample. A pair of camera lenses were used to image the scattered light (AF Nikkor 50mm f/1.8D + AF Micro-Nikkor 105mm f/2.8D, Nikon Corp.) with 2.1x magnification through a bandpass filter (785$\pm$31 nm, 87-773, Edmund Optics Inc.) to a CMOS camera (acA1920-155um, 1920 x 1200 pixels, Basler AG). Only a subset of the overall sensor array was used (1000 x 750 pixels), resulting in a FOV of 2.9 x 2.2 mm. A multifunction I/O device (USB-6363, National Instruments Corp.) was used to produce the camera exposure trigger signals and AOM modulation voltages.
 
 % Figure - Standalone MESI System Schematic
 \begin{figure}
