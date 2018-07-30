@@ -160,6 +160,43 @@ Figure \ref{fig:mesidemo}B depicts the resulting MESI ICT image calculated from 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Sensitivity and Reproducibility of MESI}
 
+Microfluidic devices have been used extensively to characterize both LSCI and MESI because they offer controlled testing environments with precise regulation of flow rates \cite{Parthasarathy:2008el, Richards:2013bi, Kazmi:2015du}. While syringe pumps are broadly utilized, they are prone to unwanted oscillations and frequently exhibit slow responsivity to flow changes \cite{Korczyk:2010eu, Zhou:2011ey, Li:2014ca}. Pressure-based flow regulation systems overcome the traditional mechanical limitations of syringe pumps by using air pressure to push fluids at a constant flow rate. Coupled with inline measurements of absolute flow for feedback, these systems allow for users to directly program complex flow profiles.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Standalone MESI Instrumentation}
+
+The microfluidic tests were performed on a standalone MESI system (Figure \ref{fig:standaloneschematic}) that features similar instrumentation to the previously described dual-modality imaging system. A 785 nm wavelength-stabilized laser diode (300 mW, LD785-SEV300, Thorlabs, Inc.) was mounted in a temperature-controlled housing (TCLDM9, Thorlabs, Inc.) and collimated using an aspheric lens (?, Thorlabs, Inc.). The operating current was set to 380 mA using a laser diode controller (LDC205C, Thorlabs, Inc.) and the diode temperature set to 25 $^\circ$C using a temperature controller (TED200C, Thorlabs, Inc.). The collimated laser light was passed through an optical isolator (?) to minimize back reflections that interfere with single frequency performance. Because the external volume holographic grating of the stabilized laser diode produces a dark spot in the far field, the laser was coupled into a X $\mu$ single mode fiber (?, Thorlabs, Inc.) to obtain a Gaussian beam. The fiber output was re-collimated and modulated using a 100 MHz AOM (3100-125 AOM + 1110AF-AIFO-1.0 RF Driver, Gooch \& Housego) with the first order diffraction isolated and relayed to obliquely illuminate the sample. A pair of camera lenses were used to image the scattered light (? , Nikon) with ?X magnification through a bandpass filter (?) to a CMOS camera (acA1920-155um, 1920 x 1200 pixels, Basler AG). Only a subset of the overall sensor array was used (? x ? pixels), resulting in a FOV of ? x ? mm. A multifunction I/O device (USB-6363, National Instruments Corp.) was used to produce the camera exposure trigger signals and AOM modulation voltages.
+
+% Figure - Standalone MESI System Schematic
+\begin{figure}
+    \includegraphics{figures/chapter_4/standaloneschematic.pdf}
+    \caption{
+        \label{fig:standaloneschematic}
+        Schematic of the standalone MESI system used for microfluidic testing.
+    }
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Microfluidic Device}
+
+The microfluidic device utilized for testing MESI featured a single 300 x 300 $\mu$m cross-sectional channel and was fabricated from polydimethylsiloxane (PDMS). 1.8 mg of titanium dioxide (\ce{TiO2}) was added per gram of PDMS to produce background scattering properties ($\mu_s$' = 8 cm$^{-1}$)\cite{Parthasarathy:2008el} similar to that of extravascular brain tissue for visible-NIR wavelengths of light \cite{Yaroslavsky:2002tg}. The complete manufacturing process can be found in \cite{Richards:2016hy}.
+
+In order to measure the flow rate through the phantom, a mass flow sensor (Flow Sensor L, Fluigent Inc.) was placed in-line between the pressure-based flow control system and the inlet of the microfluidic device. The sensor was connected to a proprietary hub (FlowBoard, Fluigent Inc.) and the accompanying software (MAESFLO, Fluigent Inc.) used to record the absolute flow rate. The pressure control system (MFCS-EZ, Fluigent Inc.) was connected to the house air line via a 500 mbar regulator and a 15 mL pressurized reservoir (Fluiwell-1C, Fluigent Inc.) filled with the liquid used in the microfluidic. The flow rate control software was used to adjust air pressure to the reservoir in order to achieve the desired flow rate as measured with the flow sensor. This feedback mechanism allows the flow system to compensate for deviations caused by particle aggregation or air bubbles.
+
+A suspension of 1 $\mu$m diameter polystyrene microspheres (5100A, Thermo Fisher Scientific) in ultra-filtered deionized water was utilized as a blood-mimicking sample. The microsphere concentration was selected to match to the scattering coefficient of whole blood ($\mu_s$ = 243 cm$^{-1}$) assuming a 50\% hematocrit and \ce{SO2} \textgreater 98\% \cite{Yaroslavsky:2002tg}. Prior to a microfluidic experiment, the solution was sonicated in a glass vial to fully suspend the particles and degassed under vacuum to remove any bubbles that could disrupt stable flow. Figure \ref{fig:microfluidic}A depicts a 5 ms LSCI frame of the 300 $\mu$m microfluidic channel with a flow rate of 10 mm/s. The highlighted ROI was used for all MESI ICT measurements. Figure \ref{fig:microfluidic}B depicts the stepped flow profile utilized in all the microfluidic experiments measured using the inline flow sensor. The flow rate is increased from 1-10 mm/s in 0.5 mm/s increments over the course of 40 minutes. This range of flow rates was selected based on prior measurements of red blood cell velocities in rodent microvasculature \cite{Tomita:2008do}.
+
+% Figure - Microfluidic Image + Flow Profile
+\begin{figure}
+    \includegraphics{figures/chapter_4/microfluidic.pdf}
+    \caption{
+        \label{fig:microfluidic}
+        \textbf{(A)} Speckle contrast image of the 300 $\mu$m microfluidic channel (Scale bar = 1 mm). The highlighted ROI is used for all subsequent flow analyses. \textbf{(B)} Stepped flow profile measured using the inline flow sensor with flow rates ranging between 1-10 mm/s.
+    }
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Microfluidic Measurements with MESI}
+
 \blindtext
 
 
