@@ -8,16 +8,29 @@ Anesthesia is widely used in preclinical neuroscience research to sedate animals
 
 The elimination of anesthesia from neuroimaging experiments has grown increasingly popular in recent years with two primary strategies taking the forefront. The first is the usage of head-mounted microscopes that miniaturize many of the optical components into a package that can be installed on the head of a mouse \cite{Gu:1999ky, Helmchen:2001tw, Flusberg:2005tq}. While this technique allows for freely-moving tethered subjects, it requires extensive optical engineering and introduces significant motion artifacts caused by normal animal behavior \cite{Helmchen:2001tw}. Miniaturizing the system described in this dissertation would require significant sacrifices in spatial and temporal resolutions for both imaging modalities.
 
-The second strategy involves restraining the animal's head while positioned on a rotating treadmill \cite{Pisauro:2013cx, Dombeck:2007gr, Wienisch:2011ju} or confined in a small chamber \cite{Silasi:2016dq}, allowing the use of existing imaging platforms. This technique allows for walking or running in place while minimizing motion of the head and imaging region. A spherical treadmill design has been used to perform awake two-photon microscopy with only an estimated 2-5 $\mu$m of lateral motion \cite{Dombeck:2007gr}, which is near the resolution of the dual-modality imaging system. This chapter details the transition from anesthetized to awake animal imaging, including the selection of a treadmill-based restraint system and \textit{in vivo} demonstrations of chronic awake imaging.
+The second strategy involves restraining the animal's head while positioned on a rotating treadmill \cite{Pisauro:2013cx, Dombeck:2007gr, Wienisch:2011ju, Kaifosh:2013fy, Heiney:2018gq} or confined in a small chamber \cite{Silasi:2016dq}, permitting the use of existing imaging platforms. This technique allows for walking or running in place while minimizing motion of the head and imaging region. A spherical treadmill design has been used to perform awake two-photon microscopy with only an estimated 2-5 $\mu$m of lateral motion \cite{Dombeck:2007gr}, which is near the resolution of the dual-modality imaging system. This chapter details the transition from anesthetized to awake animal imaging, including the selection of a treadmill-based restraint system and \textit{in vivo} demonstrations of chronic awake imaging.
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Section 5.1 - Awake Imaging System Designs
+% Section 5.1 - Awake Imaging System Design
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Awake Imaging System Designs}
+\section{Awake Imaging System Design}
 
-\blindtext
+The spherical treadmill described by Dombeck \textit{et al.} \cite{Dombeck:2007gr} is a popular design in the neuroscience community. It features a large (8-inch) Styrofoam ball supported on an air cushion produced by a perforated hemispheric casting. The ball allows for two dimensions of free movement, which reduces the torque the animal can apply to its permanently-attached metal headbar that encircles the cranial window. An implementation of this design using a 3D-printed base can be seen in Figure \ref{fig:awakesystems}A. A series of channels spanning the plastic cylinder direct the flow of air upwards to form the supporting air cushion. Flow is regulated using the standard house air supply and can be adjusted as needed depending on the weight of the ball and the subject. While preliminary tests showed the design was functional, the loudness of the flowing air was deemed unsuitable for practical use. The height of the entire apparatus was also a major limitation, with only the dual-modality imaging system capable of the necessary vertical translation.
+
+% Figure - Awake System Designs
+\begin{figure}
+    \includegraphics{figures/chapter_5/awakesystems.pdf}
+    \caption{
+        \label{fig:awakesystems}
+        \textbf{(A)} Air-cushioned spherical treadmill, \textbf{(B)} foam wheel treadmill, and \textbf{(C)} low-profile continuous belt treadmill. Close-up of the \textbf{(D)} front and \textbf{(E)} rear pulley wheels on the belt treadmill. \textbf{(F)} Mouse head-restrained on the belt treadmill using the permanently attached headbar.
+    }
+\end{figure}
+
+Two alternative designs with lower profiles were examined. The first implemented (Figure \ref{fig:awakesystems}B) a rotating foam wheel \cite{Heiney:2018gq} that allowed for one dimension of free movement. The coarse surface of the foam appeared to offer a better grip for the animal than the Styrofoam ball, making it easier to walk. While the vertical height was still substantially greater than the stereotaxic frame used during anesthetized imaging, the apparatus could easily fit under both the dual-modality and standalone MESI systems. However, issues were encountered with the stability of the rotation caused by difficulties in precisely centering the axle through the foam. These rotational variations in the position of the surface of the wheel relative to the headbar caused large motion artifacts in the resulting speckle contrast imagery despite head fixation.
+
+The second design implemented (Figure \ref{fig:awakesystems}C) a continuous belt treadmill \cite{Royer:2012gw, Kaifosh:2013fy} that also allowed for one dimension of self-propelled movement. The rubberized tread rotated over two pulleys made from LEGO tires and axles (Figure \ref{fig:awakesystems}D-E) with the animal centered over a flat piece of plastic. This eliminated the vertical variations that negatively impacted the wheel-based design and resulted in more stable LSCI measurements when the animal moved. The height of the treadmill was also further reduced and only slightly taller than the conventional stereotaxic frame. Figure \ref{fig:awakesystems}F depicts a mouse attached to the treadmill system via its permanently attached metal headbar (Appendix \ref{app:cranial_window}).
 
 
 
