@@ -30,16 +30,30 @@ The spherical treadmill described by Dombeck \textit{et al.} \cite{Dombeck:2007g
 
 Two alternative designs with lower profiles were examined. The first implemented (Figure \ref{fig:awakesystems}B) a rotating foam wheel \cite{Heiney:2018gq} that allowed for one dimension of free movement. The coarse surface of the foam appeared to offer a better grip for the animal than the Styrofoam ball, making it easier to walk. While the vertical height was still substantially greater than the stereotaxic frame used during anesthetized imaging, the apparatus could easily fit under both the dual-modality and standalone MESI systems. However, issues were encountered with the stability of the rotation caused by difficulties in precisely centering the axle through the foam. These rotational variations in the position of the surface of the wheel relative to the headbar caused large motion artifacts in the resulting speckle contrast imagery despite head fixation.
 
-The second design implemented (Figure \ref{fig:awakesystems}C) a continuous belt treadmill \cite{Royer:2012gw, Kaifosh:2013fy} that also allowed for one dimension of self-propelled movement. The rubberized tread rotated over two pulleys made from LEGO tires and axles (Figure \ref{fig:awakesystems}D-E) with the animal centered over a flat piece of plastic. This eliminated the vertical variations that negatively impacted the wheel-based design and resulted in more stable LSCI measurements when the animal moved. The height of the treadmill was also further reduced and only slightly taller than the conventional stereotaxic frame. Figure \ref{fig:awakesystems}F depicts a mouse attached to the treadmill system via its permanently attached metal headbar (Appendix \ref{app:cranial_window}).
+The second design implemented (Figure \ref{fig:awakesystems}C) a continuous belt treadmill \cite{Royer:2012gw, Kaifosh:2013fy} that also allowed for one dimension of self-propelled movement. The rubberized tread rotated over two pulleys made from LEGO tires and axles (Figure \ref{fig:awakesystems}D-E) with the animal centered over a flat piece of plastic. This eliminated the vertical variations that negatively impacted the wheel-based design and resulted in more stable LSCI measurements when the animal moved. The height of the treadmill was also further reduced and only slightly taller than the conventional stereotaxic frame. Figure \ref{fig:awakesystems}F depicts a mouse restrained on the treadmill system via its permanently attached metal headbar (Appendix \ref{app:cranial_window}).
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Section 5.2 - Awake vs. Anesthetized Measurements
+% Section 5.2 - Effects of Anesthesia on Hemodynamics
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Awake vs. Anesthetized Measurements}
+\section{Effects of Anesthesia on Hemodynamics}
 
-\blindtext
+\textit{In vivo} imaging with the head-restrained treadmill system was demonstrated by comparing awake and anesthetized hemodynamics. The subject was mounted on the treadmill using its headbar and allowed to acclimate for 10-15 minutes prior to imaging. The mounting rods were adjusted as necessary to maintain a comfortable head position and to orient the cranial window perpendicularly to the optical axis. Subjects quickly adapted to walking on the treadmill and would exhibit regularly grooming behavior when stationary.
+
+An extended MESI acquisition was performed to monitor the stability of awake and anesthetized measurements and the transition between the two states. The awake subject was imaged continuously for one hour with a nose-cone placed directly in front of the restrained animal and delivering only medical air. General anesthesia was then quickly induced with medical-air vaporized isoflurane (2.5\%) via the nose-cone. After several minutes, the isoflurane was reduced to 1.5\% and a feedback heating pad (DC Temperature Controller, FHC) placed under the animal to regulate body temperature. The anesthetized subject was imaged for an additional one hour before being removed from anesthesia and allowed to recover on a heating pad.
+
+% Figure - Speckle Awake vs. Anesthetized
+\begin{figure}
+    \includegraphics{figures/chapter_5/speckleawakeanes.pdf}
+    \caption{
+        \label{fig:speckleawakeanes}
+        Speckle contrast (top) and MESI ICT (bottom) imagery from a mouse while awake (left) and anesthetized (right) exhibits the systemic change in CBF. (Scale bar = 1 mm).
+    }
+\end{figure}
+
+Figure \ref{fig:speckleawakeanes} depicts averaged single-exposure (5 ms) speckle contrast images and their corresponding MESI ICT images during the awake and anesthetized states. Anesthesia caused a systematic increase in CBF as exhibited by the decrease in average speckle contrast (0.199 $\to$ 0.166) and increase in average ICT (2798 $s^{-1} \to$ 6579 $s^{-1}$). Significant vasodilation can also be seen in the large central vein and many smaller vessels only become visible in the anesthetized state. These results are consistent with volatile anesthetics being potent vasodilators that cause dose-dependent increases in baseline CBF uncoupled from local metabolic demands \cite{Masamoto:2012bj}.
+
 
 
 
