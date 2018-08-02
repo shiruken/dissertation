@@ -134,7 +134,7 @@ During development of the phosphorescence lifetime measurement system, two signi
 The second issue was related to the clock settings for the single-cycle timed loop on the FPGA. The PXIe-7965 FPGA module offers an onboard 40 MHz clock that was selected by default as the clock for the timed loop. However, this requires crossing clock domains from the 100 MHz sample clock on the NI-5781 transceiver to the onboard clock of the FPGA module. This can result in data corruption because the FPGA can capture data as it is actively being updated at the higher sample rate. In order to safely cross clock domains while guaranteeing data integrity, a FIFO buffer must be implemented. Alternatively, the sample clock on the transceiver module can be used as the clock for the single-cycle timed loop, which is how the issue was resolved on this system. Operating at 100 MHz does result in oversampling our expected signal, which is a problem that could be resolved by discarding unwanted samples.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{DMD Alignment} \label{ssec:dmd_registration}
+\subsection{DMD Alignment} \label{ssec:dmd_alignment}
 
 Proper alignment and illumination of the DMD is critical for accurately projecting the excitation light patterns. The DLP3000 DMD contains a 0.3-inch diagonal micromirror array with 608 x 684 pixels arranged in a diamond configuration with a $\pm$12$^\circ$ tilt angle (Figure \ref{fig:dmdmirror}A). The DMD must be illuminated at -24$^\circ$ from the normal for the specularly reflected light from mirrors in the ON position to be directed along the desired optical axis (Figure \ref{fig:dmdmirror}B). Light reflected from pixels in the OFF position will be directed +48$^\circ$ off axis and can easily be blocked.
 
@@ -270,7 +270,7 @@ Performing measurements on the normoxic cuvette revealed a limitation of the Oxy
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Section 2.3 - Demonstration of Acute In Vivo Imaging
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Demonstration of Acute \textit{In Vivo} Imaging}
+\section{Demonstration of Acute \textit{In Vivo} Imaging} \label{sec:acutedemo}
 
 The system was tested \textit{in vivo} using mice (CD-1, male, 25-30 g, Charles River) with permanent cranial window implants (see Appendix \ref{app:cranial_window}) that afford optical access to the surface of the brain. The window was positioned over the frontoparietal cortex approximately 2 mm rostral from bregma and 0.5 mm lateral from the sagittal suture. Animals with clear and healthy cranial windows were selected for use after at least two weeks of recovery post-surgery. The subject was anesthetized with medical air vaporized isoflurane (1.5\%) via nose-cone inhalation and placed supine in a head-fixed stereotaxic frame (Narishige Scientific Instrument Lab). Oxygen gas was intentionally avoided to prevent hyperoxia from interfering with the \ce{pO2} measurements. Vitals including oxygen saturation, heart rate, and breath rate were monitored via pulse oximetry (MouseOx, Starr Life Sciences) and temperature was regulated with a feedback heating pad (DC Temperature Controller, FHC). Oxyphor PtG4 was administered via retro-orbital injection into the venous sinus for a target blood plasma concentration of 5 $\mu$M. The subject was then placed under the dual-modality system for imaging.
 
