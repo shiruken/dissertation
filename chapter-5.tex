@@ -30,7 +30,7 @@ The spherical treadmill described by Dombeck \textit{et al.} \cite{Dombeck:2007g
 
 Two alternative designs with lower profiles were examined. The first implemented (Figure \ref{fig:awakesystems}B) a rotating foam wheel \cite{Heiney:2018gq} that allowed for one dimension of free movement. The coarse surface of the foam appeared to offer a better grip for the animal than the Styrofoam ball, making it easier to walk. While the vertical height was still substantially greater than the stereotaxic frame used during anesthetized imaging, the apparatus could easily fit under both the dual-modality and standalone MESI systems. However, issues were encountered with the stability of the rotation caused by difficulties in precisely centering the axle through the foam. These rotational variations in the position of the surface of the wheel relative to the headbar caused large motion artifacts in the resulting speckle contrast imagery despite head fixation.
 
-The second design implemented (Figure \ref{fig:awakesystems}C) a continuous belt treadmill \cite{Royer:2012gw, Kaifosh:2013fy} that also allowed for one dimension of self-propelled movement. The rubberized tread rotated over two pulleys made from LEGO tires and axles (Figure \ref{fig:awakesystems}D-E) with the animal centered over a flat piece of plastic. This eliminated the vertical variations that negatively impacted the wheel-based design and resulted in more stable LSCI measurements when the animal moved. The height of the treadmill was also further reduced and only slightly taller than the conventional stereotaxic frame. Figure \ref{fig:awakesystems}F depicts a mouse restrained on the treadmill system via its permanently attached metal headbar (Appendix \ref{app:cranial_window}).
+The second design implemented (Figure \ref{fig:awakesystems}C) a continuous belt treadmill \cite{Royer:2012gw, Kaifosh:2013fy} that also allowed for one dimension of self-propelled movement. The rubberized tread rotated over two pulleys made from LEGO tires and axles (Figure \ref{fig:awakesystems}D-E) with the animal centered over a flat piece of plastic. This eliminated the vertical variations that negatively impacted the wheel-based design and resulted in more stable LSCI measurements when the animal moved. The height of the treadmill was also further reduced and only slightly taller than the conventional stereotaxic frame. Figure \ref{fig:awakesystems}F depicts a mouse restrained on the treadmill system via its permanently attached metal headbar (see Appendix \ref{app:headbar_attachment}).
 
 
 
@@ -42,9 +42,9 @@ The second design implemented (Figure \ref{fig:awakesystems}C) a continuous belt
 \textit{In vivo} imaging with the head-restrained treadmill system was demonstrated by comparing awake and anesthetized hemodynamics. The subject was mounted on the treadmill using its headbar and allowed to acclimate for 10-15 minutes prior to imaging. The mounting rods were adjusted as necessary to maintain a comfortable head position and to orient the cranial window perpendicularly to the optical axis. Subjects quickly adapted to walking on the treadmill and would exhibit regularly grooming behavior when stationary.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Dynamic Cerebral Blood Flow}
+\subsection{Dynamic Cerebral Blood Flow} \label{ssec:dynamicawakecbf}
 
-An extended MESI acquisition was performed on the standalone MESI system to monitor the stability of awake and anesthetized measurements and the transition between the two states. The awake subject was imaged continuously for one hour with a nose-cone placed directly in front of the restrained animal and delivering only medical air. General anesthesia was then quickly induced with medical-air vaporized isoflurane (2.5\%) via the nose-cone. After several minutes, the isoflurane was reduced to 1.5\% and a feedback heating pad (DC Temperature Controller, FHC) placed under the animal to regulate body temperature. The anesthetized subject was imaged for an additional one hour before being removed from anesthesia and allowed to recover on a heating pad.
+An extended MESI acquisition was performed on the standalone MESI system to monitor the stability of awake and anesthetized measurements and the transition between the two states. The awake subject was imaged continuously for one hour with a nose-cone placed directly in front of the restrained animal and delivering only medical air. General anesthesia was then quickly induced with medical air vaporized isoflurane (2.5\%) via the nose-cone. After several minutes, the isoflurane was reduced to 1.5\% and a feedback heating pad (DC Temperature Controller, FHC) placed under the animal to regulate body temperature. The anesthetized subject was imaged for an additional one hour before being removed from anesthesia and allowed to recover on a heating pad.
 
 % Figure - Speckle Awake vs. Anesthetized
 \begin{figure}
@@ -75,7 +75,18 @@ As discussed in Chapter \ref{ch:mesi}, the standard MESI model represented by Eq
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Static Cerebral Blood Flow and Oxygen Tension}
 
-\blindtext
+MESI and \ce{pO2} measurements were performed on the dual-modality imaging system to examine the behavior of the two hemodynamic parameters in the awake and anesthetized states. The subject was briefly anesthetized to administer Oxyphor PtG4 via retro-orbital injection for a target blood plasma concentration of 5 $\mu$M and allowed to recover for two hours before being placed on the treadmill. Awake MESI and 445 nm \ce{pO2} measurements were acquired from the ROIs shown in Figure \ref{fig:specklepO2awakeanes}A covering one arteriole (A1), three veins (V1, V2, V3), and one parenchyma region (P1). The subject was then anesthetized in place via nose cone inhalation of medical air vaporized isoflurane (1.5\%) and another set MESI and 445 nm \ce{pO2} measurements acquired after 15 minutes.
+
+% Figure - Awake and Anesthetized Static MESI ICT and pO2
+\begin{figure}
+    \includegraphics{figures/chapter_5/specklepO2awakeanes.pdf}
+    \caption{
+        \label{fig:specklepO2awakeanes}
+        \textbf{(A)} Awake single-exposure speckle contrast image overlaid with regions targeted for ICT and \ce{pO2} measurements (Scale bar = 1 mm). One arteriole (A1), three veins (V1, V2, V3), and one parenchyma region (P1) were examined. The ROIs covered areas between 0.028 - 0.039 mm$^2$. \textbf{(B)} MESI ICT and \textbf{(C)} 445 nm \ce{pO2} measurements within the targeted regions during awake and anesthetized states (mean $\pm$ s.d.).
+    }
+\end{figure}
+
+Figure \ref{fig:specklepO2awakeanes}B shows the change in MESI ICT within each of the ROIs between the awake and anesthetized states. Similar to the results shown in Section \ref{ssec:dynamicawakecbf}, there was a 2.5x increase in relative flow while under general anesthesia. The \ce{pO2} measurements also experienced a systematic increase when in the anesthetized state (Figure \ref{fig:specklepO2awakeanes}C). The awake \ce{pO2} is significantly lower than the values reported in Section \ref{sec:acutedemo} and the arteriole only exhibits a marginally higher \ce{pO2} compared to the other regions. These results are similar to the findings of Lyons \textit{et al.} \cite{Lyons:2016bd}, who reported a mean capillary \ce{pO2} of 36 mmHg in the cortex and suggested the increase in \ce{pO2} during anesthesia is caused by the increase in blood flow.
 
 
 
