@@ -12,6 +12,7 @@
 *.lot
 *.gz
 *.toc
+*.out
 
 # Ignore .pdf files in the repository root
 /*.pdf
