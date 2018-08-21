@@ -1,34 +1,42 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Create report using UT dissertation style
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Create document using UT dissertation style
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[12pt]{report}
 \usepackage{utdiss2}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Load packages
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{microtype}              % Refined typesetting
 \usepackage{amsmath,amsfonts,bm}    % Math
 \usepackage[version=4]{mhchem}      % Chemical Formulae
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{makecell}
+\usepackage{graphicx}               % Graphics
+\usepackage{booktabs}               % Better tables
+\usepackage{makecell}               % Multi-lined table cells
+\usepackage{textcomp}               % Better registered and trademark symbols
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Execute Commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\oneandonehalfspacequote
+\topmargin 0.125in
 \renewcommand\theadfont{\bfseries}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Author Information
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document Information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \author{Colin Tan Sullender}
 \title{Quantitative Optical Imaging Platform for Studying Neurovascular Hemodynamics During Ischemic Stroke}
 \graduationmonth{December}
 \graduationyear{2018}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Supervisor and Committee Members
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \supervisor
 	{Andrew K. Dunn}
 
@@ -39,51 +47,9 @@
     {Ming-Chieh Ding}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Some optional commands to change the document's defaults.	     %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%\singlespacing
-%\oneandonehalfspacing
-
-%\singlespacequote
-\oneandonehalfspacequote
-
-\topmargin 0.125in	% Adjust this value if the PostScript file output
-			% of your dissertation has incorrect top and
-			% bottom margins. Print a copy of at least one
-			% full page of your dissertation (not the first
-			% page of a chapter) and measure the top and
-			% bottom margins with a ruler. You must have
-			% a top margin of 1.5" and a bottom margin of
-			% at least 1.25". The page numbers must be at
-			% least 1.00" from the bottom of the page.
-			% If the margins are not correct, adjust this
-			% value accordingly and re-compile and print again.
-			%
-			% The default value is 0.125"
-
-		% If you want to adjust other margins, they are in the
-		% utdiss2-nn.sty file near the top. If you are using
-		% the shell script Makediss on a Unix/Linux system, make
-		% your changes in the utdiss2-nn.sty file instead of
-		% utdiss2.sty because Makediss will overwrite any changes
-		% made to utdiss2.sty.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Some optional commands to be tested.				     %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% If there are 10 or more sections, 10 or more subsections for a section,
-% etc., you need to make an adjustment to the Table of Contents with the
-% command \longtocentry.
-%
-%\longtocentry
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % BEGIN DOCUMENT
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
 \copyrightpage      % Produces the copyright page
@@ -91,19 +57,21 @@
 \titlepage          % Produces the title page
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Dedication and Acknowledgements
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Dedication
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{dedication}
 To my family, friends, and teachers
 
 \textit{We stand on the shoulders of giants}
-
 \end{dedication}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Acknowledgements
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{acknowledgments}
-I would like to thank my advisor, Dr.\ Andrew Dunn, for his patience and support throughout my graduate studies and for allowing me to develop new skills at my own pace. None of this work would have been possible without your guidance and I am truly grateful for the opportunity you gave me. I would also like to thank the other members of my dissertation committee, Dr.\ Theresa Jones, Dr.\ Chong Xie, Dr.\ James Tunnell, and Dr.\ Ming Ding, for their comments and advice during my candidacy. This research was funded by the National Institutes of Health (EB011556, NS078791, NS082518), the American Heart Association (14EIA8970041), and the University of Texas at Austin.
+I would like to thank my advisor, Dr.\ Andrew Dunn, for his patience and support throughout my graduate studies and for allowing me to develop new skills at my own pace. None of this work would have been possible without your guidance and I am truly grateful for the opportunity you gave me. I would also like to thank the other members of my dissertation committee, Dr.\ Theresa Jones, Dr.\ Chong Xie, Dr.\ James Tunnell, and Dr.\ Ming Ding, for their comments and advice during my candidacy. This research was funded by the National Institutes of Health (EB011556, NS078791, NS082518), the American Heart Association (14EIA8970041), and The University of Texas at Austin.
 
 Thank you to all my current and former labmates for your assistance, support, and guidance over these many years. None of this would have been possible without your contributions. I would especially like to thank Dr.\ Shams Kazmi and Dr.\ Lisa Richards for all their help on developing laser speckle contrast imaging and for showing me how to be a better scientist and engineer. I would also like to thank Dr.\ Taylor Clark for her insights on neuroscience and for providing many of the subjects studied throughout the course of this project. Thank you to Dr.\ Chris Schrandt, Dr.\ Mitch Davis, and Andrew Mark for their assistance and feedback on the initial design of the imaging system. Thank you to Brittany Speetles for your work on designing and 3D printing our preliminary attempts at the awake imaging system. Thank you to Dr.\ Lan Luan and Dr.\ Fei He for your assistance on implementing awake imaging. Thank you to Dr.\ Sergei Vinogradov for providing the phosphorescent probe used extensively in this research.
 
@@ -116,23 +84,24 @@ And finally, to Stephanie, none of this would have been possible without your co
 \end{acknowledgments}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Abstract
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \utabstract
 \indent The measurement of cerebral hemodynamics is vital for the study of physiological and pathophysiological conditions in the brain. Preclinical research examining the mechanisms, outcomes, and efficacies of interventions during ischemic stroke require quantitative imaging technologies. This dissertation presents the development of an optical imaging platform capable of chronic \textit{in vivo} monitoring of cortical hemodynamics during ischemic stroke and the subsequent recovery. The system combines two different imaging techniques, laser speckle contrast imaging (LSCI) and oxygen-dependent quenching of phosphorescence, to measure cerebral blood flow (CBF) and dissolved oxygen tension (\ce{pO2}) within cortical vasculature. Phosphorescence signal localization is achieved through the use of a spatial light modulator to selectively pattern excitation light in order to overcome the traditional limitations of the imaging modality. The spatial light modulator is also utilized to perform artery-targeted photothrombosis for the induction of highly-localized, reproducible infarcts as an extension of the photothrombotic model of ischemic stroke. The LSCI hardware implements the multi-exposure speckle imaging (MESI) technique for robust estimates of CBF that facilitate day-to-day and between-subject comparisons. The integration of an awake imaging system eliminates the confounding effects of anesthesia upon cerebral hemodynamics. The capabilities of the complete optical imaging platform are demonstrated by monitoring the acute hemodynamic response during targeted photothrombosis and the chronic recovery of the resulting ischemic infarct.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Table of Contents + List of Tables + List of Figures
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tableofcontents
 \listoftables
 \listoffigures
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Document Body
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Chapter 1 - Introduction
 \include{chapter-1}
@@ -153,9 +122,9 @@ And finally, to Stephanie, none of this would have been possible without your co
 \include{chapter-6}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Appendices
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \appendices
 
 % Appendix A - Derivation of the Stern-Volmer Relationship
@@ -171,18 +140,18 @@ And finally, to Stephanie, none of this would have been possible without your co
 \include{appendix-mesi_jacobian}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Bibliography
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliographystyle{unsrt}
 \bibliography{bibliography.bib}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Vita
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{vita}
-\noindent Colin Tan Sullender was born in Birmingham, Alabama in 1988 to Wayne Sullender and Thuan Hong Tan. He graduated from Homewood High School in Homewood, Alabama in 2007. He pursued a Bachelor of Science in bioengineering at the University of Washington in Seattle and graduated in 2011 with College Honors in Bioengineering. As an undergraduate, he worked as a research assistant in the laboratory of Dr. Wendy E. Thomas. He began his doctorate in biomedical engineering at The University of Texas at Austin in 2011 in the laboratory of Dr. Andrew K. Dunn working on the development of novel optical imaging systems for studying ischemic stroke. He completed his Master of Science in Engineering in biomedical engineering in 2016 and completed his doctoral degree in December 2018.
+\noindent Colin Tan Sullender was born in Birmingham, Alabama in 1988 to Wayne Sullender and Thuan Hong Tan. He graduated from Homewood High School in Homewood, Alabama in 2007. He pursued a Bachelor of Science in bioengineering at the University of Washington in Seattle and graduated in 2011 with College Honors in Bioengineering. As an undergraduate, he worked as a research assistant in the laboratory of Dr.\ Wendy Thomas. He began his doctorate in biomedical engineering at The University of Texas at Austin in 2011 in the laboratory of Dr.\ Andrew Dunn working on the development of novel optical imaging systems for studying ischemic stroke. He completed his Master of Science in Engineering in biomedical engineering in 2016 and completed his doctoral degree in December 2018.
 \\
 \\
 Email Address: csullender@utexas.edu
@@ -192,7 +161,7 @@ This dissertation was typeset with \LaTeX{} by the author.
 \end{vita}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % END DOCUMENT
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
